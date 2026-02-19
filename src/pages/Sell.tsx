@@ -112,7 +112,7 @@ export default function Sell() {
 
   return (
     <main className="min-h-screen bg-background">
-      <div className="bg-primary py-8">
+      <div className="bg-deep-green py-8">
         <div className="container">
           <h1 className="text-3xl font-bold text-primary-foreground">List an Item</h1>
           <p className="text-primary-foreground/70 text-sm mt-1">Upload a photo — our AI will tag it for you automatically</p>

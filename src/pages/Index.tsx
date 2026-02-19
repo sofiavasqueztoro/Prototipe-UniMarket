@@ -130,7 +130,7 @@ export default function Index() {
   return (
     <main>
       {/* ── Hero ── */}
-      <section className="relative overflow-hidden bg-primary">
+      <section className="relative overflow-hidden bg-deep-green">
         <div className="absolute inset-0 opacity-10 pointer-events-none">
           <div className="absolute top-0 right-0 w-96 h-96 rounded-full bg-accent translate-x-1/2 -translate-y-1/2" />
           <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-sage -translate-x-1/2 translate-y-1/2" />
@@ -185,7 +185,7 @@ export default function Index() {
       </section>
 
       {/* ── Impact Counter ── */}
-      <section className="bg-deep-green py-12">
+      <section className="bg-deep-green/80 py-12">
         <div className="container grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
           {stats.map(({ value, label, icon: Icon, suffix }) => (
             <div key={label} className="flex flex-col items-center gap-2">
@@ -200,7 +200,7 @@ export default function Index() {
       </section>
 
       {/* ── How It Works ── */}
-      <section className="py-20 bg-background">
+      <section className="py-20 bg-card/60 backdrop-blur-sm">
         <div className="container">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-primary mb-3">How It Works</h2>
@@ -227,7 +227,7 @@ export default function Index() {
       </section>
 
       {/* ── Featured Listings ── */}
-      <section className="py-16 bg-muted/30">
+      <section className="py-16 bg-card/40">
         <div className="container">
           <div className="flex items-center justify-between mb-8">
             <div>
@@ -276,9 +276,9 @@ export default function Index() {
       </section>
 
       {/* ── Eco Mascot Banner ── */}
-      <section className="py-12 bg-sage/20">
+      <section className="py-12">
         <div className="container">
-          <div className="bg-primary rounded-2xl p-8 flex flex-col md:flex-row items-center gap-6 shadow-lg">
+          <div className="bg-deep-green rounded-2xl p-8 flex flex-col md:flex-row items-center gap-6 shadow-lg">
             <div className="text-6xl shrink-0 animate-pulse-slow">🌿</div>
             <div className="flex-1 text-center md:text-left">
               <p className="text-accent font-semibold text-sm mb-1">Meet Eco, your sustainability buddy!</p>
