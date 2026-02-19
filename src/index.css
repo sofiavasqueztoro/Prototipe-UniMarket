@@ -81,6 +81,16 @@
 
   .bg-sage { background-color: hsl(var(--dry-sage)); }
 
-  .bg-cta { background-color: hsl(var(--cta)); }
-  .text-cta { color: hsl(var(--cta)); }
+  .text-mustard { color: hsl(var(--mustard)); }
+  .bg-mustard { background-color: hsl(var(--mustard)); }
 }
+
+/* Smooth scrolling */
+html { scroll-behavior: smooth; }
+
+/* Hide scrollbar for horizontal scroll */
+.scrollbar-hide::-webkit-scrollbar { display: none; }
+.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Mobile safe area */
+.safe-area-bottom { padding-bottom: env(safe-area-inset-bottom); }
