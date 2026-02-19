@@ -66,60 +66,102 @@ export default function Profile() {
           </Avatar>
           <div className="text-center sm:text-left">
             <h1 className="text-2xl font-bold text-primary-foreground">Alex López</h1>
-            <p className="text-primary-foreground/70 text-sm">UCM Madrid · Member since Sept 2024</p>
+            <p className="text-primary-foreground/85 text-sm">UCM Madrid · Member since Sept 2024</p>
             <div className="flex items-center gap-2 mt-2 justify-center sm:justify-start">
               <Star className="h-4 w-4 fill-mustard text-mustard" />
               <span className="text-primary-foreground font-semibold text-sm">4.8</span>
-              <span className="text-primary-foreground/60 text-xs">· 15 transactions</span>
+              <span className="text-primary-foreground/80 text-xs">· 15 transactions</span>
             </div>
           </div>
           <div className="sm:ml-auto text-center">
-            <p className="text-accent font-bold text-2xl">{xp.toLocaleString()}</p>
-            <p className="text-primary-foreground/70 text-xs">XP Points</p>
+            <p className="text-cta font-bold text-2xl">{xp.toLocaleString()}</p>
+            <p className="text-primary-foreground/80 text-xs">XP Points</p>
           </div>
         </div>
       </div>
 
       <div className="container py-8 space-y-8">
         {/* Eco Mascot */}
-        <Card className="border-0 shadow-sm overflow-hidden">
-          <CardContent className="p-0">
-            <div className="bg-gradient-to-r from-deep-green to-deep-green/80 p-6 flex items-start gap-4">
-              <span className="text-5xl shrink-0 animate-pulse-slow">🌿</span>
-              <div className="relative">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl rounded-tl-none p-4 max-w-sm">
-                  <p className="font-semibold text-primary-foreground text-sm mb-1">Eco says:</p>
-                  <p className="text-primary-foreground/90 text-sm">
-                    You've sold 3 items this month! 🌱 Keep it up! You're just <strong className="text-accent">220 XP</strong> away from reaching <strong className="text-accent">Level 5 – Sustainability Star</strong>. Every swap counts! 💪
-                  </p>
-                </div>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+<Card className="border-0 shadow-sm overflow-hidden bg-white">
+  <CardContent className="p-0">
+    <div className="p-6 flex items-center gap-5">
+      
+      {/* Mascot container (NEW) */}
+      <div className="relative shrink-0">
+        {/* soft blob background */}
+        <div className="absolute -inset-2 rounded-[28px] bg-cta/35 blur-[2px]" />
+        <div className="relative rounded-[28px] bg-white ring-1 ring-black/5 shadow-sm px-3 py-3">
+          {/* tiny label */}
+          <div className="absolute -top-3 left-4 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-yale text-white shadow-sm">
+            Eco
+          </div>
+
+          {/* image */}
+          <div className="rounded-[22px] bg-sage/25 ring-1 ring-black/5 p-2">
+            <img
+              src="/llama.jpeg"
+              alt="Eco mascot llama"
+              className="h-[118px] w-[118px] object-contain drop-shadow-sm"
+            />
+          </div>
+
+          {/* little sparkle / icon */}
+          <div className="absolute -bottom-2 -right-2 h-9 w-9 rounded-full bg-white shadow ring-1 ring-black/5 flex items-center justify-center">
+            <span className="text-lg">🌿</span>
+          </div>
+        </div>
+      </div>
+
+      {/* Message bubble */}
+      <div className="relative flex-1">
+        <div className="bg-white rounded-2xl p-5 border border-primary/10 shadow-sm">
+          {/* “speech” pointer */}
+          <div className="absolute left-[-8px] top-8 h-4 w-4 rotate-45 bg-white border-l border-b border-primary/10" />
+
+          <div className="flex items-center justify-between gap-3">
+            <p className="font-semibold text-yale text-sm">Eco says</p>
+            <Badge className="bg-cta text-charcoal border border-black/5 text-[10px]">
+              This month
+            </Badge>
+          </div>
+
+          <p className="text-yale/80 text-sm mt-2 leading-relaxed">
+            You've sold <strong className="text-yale">3 items</strong> this month. 🌱 Keep it up!
+            You're just <strong className="text-yale">220 XP</strong> away from reaching{" "}
+            <strong className="text-yale">Level 5 - Sustainability Star</strong>. Every swap counts! 💪
+          </p>
+
+          
+        </div>
+      </div>
+
+    </div>
+  </CardContent>
+</Card>
+
 
         {/* Level Progress */}
-        <Card className="border-0 shadow-sm">
+        <Card className="border-0 shadow-sm bg-white">
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-3">
               <div>
-                <p className="text-xs text-muted-foreground font-semibold uppercase tracking-wide">Sustainability Level</p>
-                <p className="text-lg font-bold text-primary">
+                <p className="text-xs text-yale/70 font-semibold uppercase tracking-wide">Sustainability Level</p>
+                <p className="text-lg font-bold text-yale">
                   Level {currentLevel.level} – {currentLevel.name}
                 </p>
               </div>
               {nextLevel && (
                 <div className="text-right">
-                  <p className="text-xs text-muted-foreground">Next up</p>
-                  <p className="text-sm font-semibold text-foreground">Level {nextLevel.level} · {nextLevel.name}</p>
-                  <p className="text-xs text-muted-foreground">{nextLevel.minXp - xp} XP to go</p>
+                  <p className="text-xs text-yale/70">Next up</p>
+                  <p className="text-sm font-semibold text-yale">Level {nextLevel.level} · {nextLevel.name}</p>
+                  <p className="text-xs text-yale/70">{nextLevel.minXp - xp} XP to go</p>
                 </div>
               )}
             </div>
             <Progress value={progress} className="h-3 [&>div]:bg-sage [&>div]:transition-all" />
-            <div className="flex justify-between text-xs text-muted-foreground mt-1.5">
+            <div className="flex justify-between text-xs text-yale/70 mt-1.5">
               <span>{currentLevel.minXp} XP</span>
-              <span className="font-semibold text-primary">{xp} XP</span>
+              <span className="font-semibold text-yale">{xp} XP</span>
               <span>{nextLevel?.minXp ?? "MAX"} XP</span>
             </div>
           </CardContent>
@@ -193,7 +235,7 @@ export default function Profile() {
                   </div>
                   <CardContent className="p-3">
                     <p className="font-semibold text-sm truncate">{listing.name}</p>
-                    <p className="text-accent font-bold mb-3">€{listing.price}</p>
+                    <p className="text-accent font-bold mb-3">${listing.price}</p>
                     <div className="flex gap-2">
                       <Link to={`/item/${listing.id}`} className="flex-1">
                         <Button variant="outline" size="sm" className="w-full text-xs border-primary/30 text-primary hover:bg-primary hover:text-primary-foreground">

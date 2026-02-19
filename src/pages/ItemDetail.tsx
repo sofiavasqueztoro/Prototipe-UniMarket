@@ -91,7 +91,7 @@ export default function ItemDetail() {
                   </Button>
                 </div>
               </div>
-              <p className="text-3xl font-extrabold text-accent mb-1">€{item.price}</p>
+              <p className="text-3xl font-extrabold text-accent mb-1">${item.price}</p>
               <Badge className={`text-xs border ${conditionColors[item.condition] ?? "bg-muted text-muted-foreground"}`}>
                 {item.condition}
               </Badge>
@@ -122,7 +122,7 @@ export default function ItemDetail() {
                 <p className="text-sm font-semibold text-foreground flex items-center gap-1.5">
                   🤖 AI Quality Score
                 </p>
-                <span className="text-sm font-bold text-primary">{item.aiScore}% — {scoreLabel}</span>
+                <span className="text-sm font-bold text-primary">{item.aiScore}% - {scoreLabel}</span>
               </div>
               <Progress value={item.aiScore} className="h-2 [&>div]:bg-sage" />
               <p className="text-xs text-muted-foreground mt-2">
@@ -198,7 +198,7 @@ export default function ItemDetail() {
                   <img src={s.image} alt={s.name} className="w-full h-40 object-cover group-hover:scale-105 transition-transform duration-300" />
                   <CardContent className="p-3">
                     <p className="text-sm font-medium truncate">{s.name}</p>
-                    <p className="text-accent font-bold">€{s.price}</p>
+                    <p className="text-accent font-bold">${s.price}</p>
                   </CardContent>
                 </Card>
               </Link>

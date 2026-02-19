@@ -94,7 +94,7 @@ export default function Browse() {
           {aiSearch && (
             <div className="mt-3 p-3 bg-accent/20 border border-accent/40 rounded-lg text-sm text-primary-foreground flex items-center gap-2">
               <span>🤖</span>
-              <span>AI Visual Search active — upload an image to find similar items</span>
+              <span>AI Visual Search active - upload an image to find similar items</span>
               <label className="ml-auto cursor-pointer bg-accent text-accent-foreground px-3 py-1 rounded-md text-xs font-semibold">
                 Upload Photo
                 <input type="file" accept="image/*" className="hidden" />
@@ -244,7 +244,7 @@ export default function Browse() {
                       ))}
                     </div>
                     <div className="flex items-center justify-between">
-                      <span className="font-bold text-accent">€{item.price}</span>
+                      <span className="font-bold text-accent">${item.price}</span>
                       <div className="flex items-center gap-1 text-xs text-muted-foreground">
                         <Star className="h-3 w-3 fill-mustard text-mustard" />
                         {item.rating}

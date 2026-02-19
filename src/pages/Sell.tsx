@@ -115,7 +115,7 @@ export default function Sell() {
       <div className="bg-deep-green py-8">
         <div className="container">
           <h1 className="text-3xl font-bold text-primary-foreground">List an Item</h1>
-          <p className="text-primary-foreground/70 text-sm mt-1">Upload a photo — our AI will tag it for you automatically</p>
+          <p className="text-primary-foreground/70 text-sm mt-1">Upload a photo - our AI will tag it for you automatically</p>
         </div>
       </div>
 
@@ -205,7 +205,7 @@ export default function Sell() {
                 />
               </div>
               <div>
-                <Label className="text-sm font-semibold mb-1.5 block">Price (€)</Label>
+                <Label className="text-sm font-semibold mb-1.5 block">Price ($)</Label>
                 <Input
                   type="number"
                   placeholder="0.00"
@@ -242,7 +242,7 @@ export default function Sell() {
             <div>
               <Label className="text-sm font-semibold mb-1.5 block">Description</Label>
               <Textarea
-                placeholder="Describe the item — brand, material, any wear..."
+                placeholder="Describe the item - brand, material, any wear..."
                 rows={3}
                 value={form.description}
                 onChange={(e) => setForm({ ...form, description: e.target.value })}
@@ -317,7 +317,7 @@ export default function Sell() {
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-bold text-accent">
-                    {form.exchangeType === "donate" ? "Free" : form.price ? `€${form.price}` : "€—"}
+                    {form.exchangeType === "donate" ? "Free" : form.price ? `$${form.price}` : "$-"}
                   </span>
                   <Badge variant="outline" className="text-[10px]">
                     {form.exchangeType === "sell" ? "For Sale" : form.exchangeType === "swap" ? "For Swap" : "Donate"}

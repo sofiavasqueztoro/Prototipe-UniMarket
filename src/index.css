@@ -2,92 +2,70 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Manrope:wght@300;400;500;600&display=swap');
 
 @layer base {
   :root {
-    /* UniMarket Brand Colors */
-    --sage:        88 23% 55%;     /* #8DA773 Verde Salvia */
-    --deep-green:  160 57% 14%;    /* #0C3B2E Verde Profundo */
-    --warm-beige:  33 38% 53%;     /* #BB8A52 Beige Cálido */
-    --mustard:     43 100% 52%;    /* #FFBA08 Mostaza */
+    /* =========================
+       UniMarket Final Palette
+    ========================== */
 
-    /* Semantic tokens — sage as the main surface/primary */
-    --background:  88 23% 55%;     /* Verde Salvia as app background */
-    --foreground:  160 57% 8%;
+    --yale-blue:    205 94% 20%;   /* #033F63 */
+    --stormy-teal:  186 45% 29%;   /* #28666E */
+    --muted-teal:   147 15% 55%;   /* #7C9885 ← MAIN BACKGROUND */
+    --dry-sage:     62 25% 61%;    /* #B5B682 */
+    --soft-peach:   41 96% 78%;    /* #FEDC97 */
+    --charcoal:     0 0% 17%;
 
-    --card:        88 30% 96%;
-    --card-foreground: 160 57% 10%;
+    /* =========================
+       Semantic Tokens
+    ========================== */
 
-    --popover:     0 0% 100%;
-    --popover-foreground: 160 57% 10%;
+    /* MAIN BACKGROUND */
+    --background: 147 15% 55%;   /* Muted Teal */
+    --foreground: 0 0% 17%;      /* Charcoal (NEGRO) */
 
-    --primary:     88 23% 55%;     /* sage green as primary */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 17%;
+
+    /* Brand */
+    --primary: 205 94% 20%;       /* Yale Blue */
     --primary-foreground: 0 0% 100%;
 
-    --secondary:   88 23% 72%;     /* lighter sage */
-    --secondary-foreground: 160 57% 14%;
+    /* Secondary */
+    --secondary: 186 45% 29%;
+    --secondary-foreground: 0 0% 100%;
 
-    --muted:       88 20% 75%;
-    --muted-foreground: 160 30% 30%;
+    /* Accent sections */
+    --accent: 62 25% 61%;         /* Dry Sage */
+    --accent-foreground: 0 0% 17%;
 
-    --accent:      43 100% 52%;    /* mustard */
-    --accent-foreground: 160 57% 10%;
+    /* CTA */
+    --cta: 41 96% 78%;            /* Soft Peach */
+    --cta-foreground: 0 0% 17%;
 
-    --destructive: 0 84% 60%;
-    --destructive-foreground: 0 0% 100%;
+    --muted: 147 10% 48%;
+    --muted-foreground:   189 46% 28%;
 
-    --border:      88 20% 68%;
-    --input:       88 20% 68%;
-    --ring:        160 57% 14%;
+    --border: 147 10% 48%;
+    --input: 147 10% 48%;
+    --ring: 41 96% 78%;
 
     --radius: 0.75rem;
 
-    /* deep green used as the navbar surface */
-    --navbar-bg:   160 57% 14%;
-
-    --sidebar-background: 160 57% 14%;
-    --sidebar-foreground: 60 20% 97%;
-    --sidebar-primary: 43 100% 52%;
-    --sidebar-primary-foreground: 160 57% 10%;
-    --sidebar-accent: 160 50% 20%;
-    --sidebar-accent-foreground: 60 20% 97%;
-    --sidebar-border: 160 40% 22%;
-    --sidebar-ring: 43 100% 52%;
+    --navbar-bg: 147 18% 50%;
   }
 
   .dark {
-    --background:  88 20% 38%;
-    --foreground:  60 20% 95%;
-    --card:        88 18% 28%;
-    --card-foreground: 60 20% 95%;
-    --popover:     88 18% 28%;
-    --popover-foreground: 60 20% 95%;
-    --primary:     88 23% 55%;
-    --primary-foreground: 0 0% 100%;
-    --secondary:   88 15% 45%;
-    --secondary-foreground: 60 20% 95%;
-    --muted:       88 15% 42%;
-    --muted-foreground: 88 15% 75%;
-    --accent:      43 100% 52%;
-    --accent-foreground: 160 57% 10%;
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 60 20% 95%;
-    --border:      88 15% 48%;
-    --input:       88 15% 48%;
-    --ring:        43 100% 52%;
-    --navbar-bg:   160 57% 10%;
+    --background: 205 50% 15%;
+    --foreground: 0 0% 95%;
   }
-}
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+  * { @apply border-border; }
 
   body {
     @apply bg-background text-foreground;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Manrope', sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {
@@ -96,26 +74,13 @@
 }
 
 @layer utilities {
-  .text-sage { color: hsl(var(--sage)); }
-  .bg-sage { background-color: hsl(var(--sage)); }
-  .border-sage { border-color: hsl(var(--sage)); }
+  .bg-yale { background-color: hsl(var(--yale-blue)); }
+  .text-yale { color: hsl(var(--yale-blue)); }
 
-  .text-deep-green { color: hsl(var(--deep-green)); }
-  .bg-deep-green { background-color: hsl(var(--deep-green)); }
+  .bg-teal { background-color: hsl(var(--stormy-teal)); }
 
-  .text-warm-beige { color: hsl(var(--warm-beige)); }
-  .bg-warm-beige { background-color: hsl(var(--warm-beige)); }
+  .bg-sage { background-color: hsl(var(--dry-sage)); }
 
-  .text-mustard { color: hsl(var(--mustard)); }
-  .bg-mustard { background-color: hsl(var(--mustard)); }
+  .bg-cta { background-color: hsl(var(--cta)); }
+  .text-cta { color: hsl(var(--cta)); }
 }
-
-/* Smooth scrolling */
-html { scroll-behavior: smooth; }
-
-/* Hide scrollbar for horizontal scroll */
-.scrollbar-hide::-webkit-scrollbar { display: none; }
-.scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
-
-/* Mobile safe area */
-.safe-area-bottom { padding-bottom: env(safe-area-inset-bottom); }

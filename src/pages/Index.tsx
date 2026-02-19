@@ -62,7 +62,7 @@ const steps = [
   {
     icon: "📷",
     title: "Upload a Photo",
-    desc: "Snap a picture of your item — our AI does the rest.",
+    desc: "Snap a picture of your item - our AI does the rest.",
   },
   {
     icon: "🤖",
@@ -176,7 +176,7 @@ export default function Index() {
                 </div>
               </div>
               <div className="absolute -top-4 -right-4 bg-accent rounded-xl shadow-lg p-3">
-                <p className="text-xs font-bold text-accent-foreground">€18</p>
+                <p className="text-xs font-bold text-accent-foreground">$18</p>
                 <p className="text-[10px] text-accent-foreground/80">Like New ✓</p>
               </div>
             </div>
@@ -203,8 +203,8 @@ export default function Index() {
       <section className="py-20 bg-card/60 backdrop-blur-sm">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-primary mb-3">How It Works</h2>
-            <p className="text-muted-foreground max-w-md mx-auto">
+            <h2 className="text-3xl font-bold text-yale mb-3">How It Works</h2>
+            <p className="text-yale max-w-md mx-auto">
               Selling clothes has never been easier. Three steps is all it takes.
             </p>
           </div>
@@ -217,9 +217,9 @@ export default function Index() {
                 <div className="absolute top-8 right-0 hidden md:flex items-center last:hidden">
                   {i < steps.length - 1 && <ChevronRight className="h-6 w-6 text-muted-foreground" />}
                 </div>
-                <div className="text-xs font-bold text-accent mb-1">STEP {i + 1}</div>
-                <h3 className="text-lg font-semibold text-primary mb-2">{step.title}</h3>
-                <p className="text-sm text-muted-foreground">{step.desc}</p>
+                <div className="text-xs font-bold text-yale mb-1">STEP {i + 1}</div>
+                <h3 className="text-lg font-semibold text-yale mb-2">{step.title}</h3>
+                <p className="text-sm text-yale">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -263,7 +263,7 @@ export default function Index() {
                   <CardContent className="p-3">
                     <p className="font-semibold text-sm text-foreground truncate">{item.name}</p>
                     <div className="flex items-center justify-between mt-1">
-                      <span className="text-lg font-bold text-accent">€{item.price}</span>
+                      <span className="text-lg font-bold text-accent">${item.price}</span>
                       <Badge variant="secondary" className="text-[10px]">Size {item.size}</Badge>
                     </div>
                     <p className="text-xs text-muted-foreground mt-1">{item.seller}</p>
@@ -276,27 +276,52 @@ export default function Index() {
       </section>
 
       {/* ── Eco Mascot Banner ── */}
-      <section className="py-12">
-        <div className="container">
-          <div className="bg-deep-green rounded-2xl p-8 flex flex-col md:flex-row items-center gap-6 shadow-lg">
-            <div className="text-6xl shrink-0 animate-pulse-slow">🌿</div>
-            <div className="flex-1 text-center md:text-left">
-              <p className="text-accent font-semibold text-sm mb-1">Meet Eco, your sustainability buddy!</p>
-              <h3 className="text-2xl font-bold text-primary-foreground mb-2">
-                Every swap makes a difference 🌍
-              </h3>
-              <p className="text-primary-foreground/70 text-sm max-w-md">
-                I'm Eco — your guide to sustainable fashion! Earn points, level up, and get rewarded every time you buy, sell, or donate on UniMarket.
-              </p>
-            </div>
-            <Link to="/profile">
-              <Button className="bg-accent text-accent-foreground hover:bg-mustard/90 font-semibold shrink-0">
-                See My Rewards <Star className="ml-2 h-4 w-4" />
-              </Button>
-            </Link>
-          </div>
-        </div>
-      </section>
+<section className="py-12">
+  <div className="container">
+    <div className="bg-white rounded-2xl p-8 flex flex-col md:flex-row items-center gap-6 shadow-lg border border-black/5">
+
+      {/* Mascot */}
+    <div className="relative shrink-0">
+      <div className="absolute inset-0 rounded-3xl bg-dry-sage/30 blur-md" />
+      
+      <div className="relative bg-white rounded-3xl p-6 shadow-md">
+        <img
+          src="/llama.jpeg"
+          alt="Eco mascot llama"
+          className="h-40 w-40 object-contain"
+        />
+      </div>
+    </div>
+
+
+
+      {/* Text Content */}
+      <div className="flex-1 text-center md:text-left">
+        <p className="text-dry-sage font-semibold text-sm mb-1">
+          Meet Eco, your sustainability buddy!
+        </p>
+
+        <h3 className="text-2xl font-bold text-yale mb-2">
+          Every swap makes a difference 🌍
+        </h3>
+
+        <p className="text-yale/70 text-sm max-w-md">
+          I'm Eco -your guide to sustainable fashion. Earn points, level up,
+          and get rewarded every time you buy, sell, or donate on UniMarket.
+        </p>
+      </div>
+
+      {/* Button */}
+      <Link to="/profile">
+        <Button className="bg-yale text-white hover:bg-yale/90 font-semibold shrink-0">
+          See My Rewards <Star className="ml-2 h-4 w-4" />
+        </Button>
+      </Link>
+
+    </div>
+  </div>
+</section>
+
     </main>
   );
 }

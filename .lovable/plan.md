@@ -43,7 +43,7 @@ A full multi-page UI prototype using the UniMarket brand colors (Verde Salvia #8
 
 ### Page 4 – Sell / Upload
 - **Photo upload area**: Drag-and-drop zone with a camera icon
-- **AI Auto-Tag simulation**: After "uploading" a photo, a loading animation plays and tags appear automatically (size, color, category, style) — pre-filled fields that the user can edit
+- **AI Auto-Tag simulation**: After "uploading" a photo, a loading animation plays and tags appear automatically (size, color, category, style) - pre-filled fields that the user can edit
 - **Manual form fields**: Title, description, price, condition selector, preferred exchange type (sell / donate / swap)
 - **Preview card**: Live preview of how the listing will look
 - **Publish button** with a sustainability tip shown on submission
