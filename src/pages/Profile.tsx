@@ -58,7 +58,7 @@ export default function Profile() {
   return (
     <main className="min-h-screen bg-background">
       {/* Header */}
-      <div className="bg-primary py-10">
+      <div className="bg-deep-green py-10">
         <div className="container flex flex-col sm:flex-row items-center gap-6">
           <Avatar className="h-20 w-20 border-4 border-accent shadow-lg">
             <AvatarImage src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex" />
@@ -84,7 +84,7 @@ export default function Profile() {
         {/* Eco Mascot */}
         <Card className="border-0 shadow-sm overflow-hidden">
           <CardContent className="p-0">
-            <div className="bg-gradient-to-r from-primary to-deep-green p-6 flex items-start gap-4">
+            <div className="bg-gradient-to-r from-deep-green to-deep-green/80 p-6 flex items-start gap-4">
               <span className="text-5xl shrink-0 animate-pulse-slow">🌿</span>
               <div className="relative">
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl rounded-tl-none p-4 max-w-sm">

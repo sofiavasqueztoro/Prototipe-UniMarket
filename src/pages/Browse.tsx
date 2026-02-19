@@ -68,7 +68,7 @@ export default function Browse() {
   return (
     <main className="min-h-screen bg-background">
       {/* Header */}
-      <div className="bg-primary py-8">
+      <div className="bg-deep-green py-8">
         <div className="container">
           <h1 className="text-3xl font-bold text-primary-foreground mb-4">Browse Items</h1>
           <div className="flex gap-2">

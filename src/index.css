@@ -12,24 +12,24 @@
     --warm-beige:  33 38% 53%;     /* #BB8A52 Beige Cálido */
     --mustard:     43 100% 52%;    /* #FFBA08 Mostaza */
 
-    /* Semantic tokens */
-    --background:  60 20% 97%;
-    --foreground:  160 57% 10%;
+    /* Semantic tokens — sage as the main surface/primary */
+    --background:  88 23% 55%;     /* Verde Salvia as app background */
+    --foreground:  160 57% 8%;
 
-    --card:        0 0% 100%;
+    --card:        88 30% 96%;
     --card-foreground: 160 57% 10%;
 
     --popover:     0 0% 100%;
     --popover-foreground: 160 57% 10%;
 
-    --primary:     160 57% 14%;    /* deep green */
-    --primary-foreground: 60 20% 97%;
+    --primary:     88 23% 55%;     /* sage green as primary */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary:   88 23% 90%;     /* light sage */
+    --secondary:   88 23% 72%;     /* lighter sage */
     --secondary-foreground: 160 57% 14%;
 
-    --muted:       60 10% 93%;
-    --muted-foreground: 160 20% 45%;
+    --muted:       88 20% 75%;
+    --muted-foreground: 160 30% 30%;
 
     --accent:      43 100% 52%;    /* mustard */
     --accent-foreground: 160 57% 10%;
@@ -37,11 +37,14 @@
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border:      88 15% 82%;
-    --input:       88 15% 82%;
+    --border:      88 20% 68%;
+    --input:       88 20% 68%;
     --ring:        160 57% 14%;
 
     --radius: 0.75rem;
+
+    /* deep green used as the navbar surface */
+    --navbar-bg:   160 57% 14%;
 
     --sidebar-background: 160 57% 14%;
     --sidebar-foreground: 60 20% 97%;
@@ -54,25 +57,26 @@
   }
 
   .dark {
-    --background:  160 57% 8%;
+    --background:  88 20% 38%;
     --foreground:  60 20% 95%;
-    --card:        160 50% 12%;
+    --card:        88 18% 28%;
     --card-foreground: 60 20% 95%;
-    --popover:     160 50% 12%;
+    --popover:     88 18% 28%;
     --popover-foreground: 60 20% 95%;
-    --primary:     43 100% 52%;
-    --primary-foreground: 160 57% 10%;
-    --secondary:   160 40% 20%;
+    --primary:     88 23% 55%;
+    --primary-foreground: 0 0% 100%;
+    --secondary:   88 15% 45%;
     --secondary-foreground: 60 20% 95%;
-    --muted:       160 30% 18%;
-    --muted-foreground: 88 15% 65%;
-    --accent:      88 23% 55%;
-    --accent-foreground: 0 0% 100%;
+    --muted:       88 15% 42%;
+    --muted-foreground: 88 15% 75%;
+    --accent:      43 100% 52%;
+    --accent-foreground: 160 57% 10%;
     --destructive: 0 62% 30%;
     --destructive-foreground: 60 20% 95%;
-    --border:      160 30% 22%;
-    --input:       160 30% 22%;
+    --border:      88 15% 48%;
+    --input:       88 15% 48%;
     --ring:        43 100% 52%;
+    --navbar-bg:   160 57% 10%;
   }
 }
 
@@ -112,3 +116,6 @@ html { scroll-behavior: smooth; }
 /* Hide scrollbar for horizontal scroll */
 .scrollbar-hide::-webkit-scrollbar { display: none; }
 .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* Mobile safe area */
+.safe-area-bottom { padding-bottom: env(safe-area-inset-bottom); }

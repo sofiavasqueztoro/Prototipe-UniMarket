@@ -29,7 +29,7 @@ export default function Navbar() {
     path === "/" ? location.pathname === "/" : location.pathname.startsWith(path);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-primary shadow-sm">
+    <header className="sticky top-0 z-50 w-full border-b bg-deep-green shadow-sm">
       <div className="container flex h-16 items-center justify-between gap-4">
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 shrink-0">
