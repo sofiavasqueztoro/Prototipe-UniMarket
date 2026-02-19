@@ -7,76 +7,76 @@
 @layer base {
   :root {
     /* UniMarket Brand Colors */
-    --sage:        88 23% 55%;     /* #8DA773 Verde Salvia */
-    --deep-green:  160 57% 14%;    /* #0C3B2E Verde Profundo */
-    --warm-beige:  33 38% 53%;     /* #BB8A52 Beige Cálido */
-    --mustard:     43 100% 52%;    /* #FFBA08 Mostaza */
+    --oliva:       84 25% 34%;     /* #5A6B40 Oliva */
+    --beige:       42 51% 80%;     /* #E6D6B1 Beige Claro */
+    --lavanda:     295 22% 68%;    /* #BC9BBF Lavanda */
+    --negro:       0 0% 17%;       /* #2C2C2C Negro */
 
-    /* Semantic tokens — sage as the main surface/primary */
-    --background:  88 23% 55%;     /* Verde Salvia as app background */
-    --foreground:  160 57% 8%;
+    /* Semantic tokens */
+    --background:  42 51% 80%;     /* Beige Claro as main bg */
+    --foreground:  0 0% 17%;       /* Negro */
 
-    --card:        88 30% 96%;
-    --card-foreground: 160 57% 10%;
+    --card:        42 51% 90%;
+    --card-foreground: 0 0% 17%;
 
-    --popover:     0 0% 100%;
-    --popover-foreground: 160 57% 10%;
+    --popover:     42 40% 95%;
+    --popover-foreground: 0 0% 17%;
 
-    --primary:     88 23% 55%;     /* sage green as primary */
-    --primary-foreground: 0 0% 100%;
+    --primary:     84 25% 34%;     /* Oliva */
+    --primary-foreground: 42 51% 93%;
 
-    --secondary:   88 23% 72%;     /* lighter sage */
-    --secondary-foreground: 160 57% 14%;
+    --secondary:   295 22% 68%;    /* Lavanda */
+    --secondary-foreground: 0 0% 17%;
 
-    --muted:       88 20% 75%;
-    --muted-foreground: 160 30% 30%;
+    --muted:       42 30% 72%;
+    --muted-foreground: 0 0% 40%;
 
-    --accent:      43 100% 52%;    /* mustard */
-    --accent-foreground: 160 57% 10%;
+    --accent:      295 22% 68%;    /* Lavanda as accent */
+    --accent-foreground: 0 0% 17%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border:      88 20% 68%;
-    --input:       88 20% 68%;
-    --ring:        160 57% 14%;
+    --border:      42 30% 68%;
+    --input:       42 30% 68%;
+    --ring:        84 25% 34%;
 
     --radius: 0.75rem;
 
-    /* deep green used as the navbar surface */
-    --navbar-bg:   160 57% 14%;
+    /* navbar uses Oliva */
+    --navbar-bg:   84 25% 34%;
 
-    --sidebar-background: 160 57% 14%;
-    --sidebar-foreground: 60 20% 97%;
-    --sidebar-primary: 43 100% 52%;
-    --sidebar-primary-foreground: 160 57% 10%;
-    --sidebar-accent: 160 50% 20%;
-    --sidebar-accent-foreground: 60 20% 97%;
-    --sidebar-border: 160 40% 22%;
-    --sidebar-ring: 43 100% 52%;
+    --sidebar-background: 84 25% 34%;
+    --sidebar-foreground: 42 51% 93%;
+    --sidebar-primary: 295 22% 68%;
+    --sidebar-primary-foreground: 0 0% 17%;
+    --sidebar-accent: 84 20% 28%;
+    --sidebar-accent-foreground: 42 51% 93%;
+    --sidebar-border: 84 18% 26%;
+    --sidebar-ring: 295 22% 68%;
   }
 
   .dark {
-    --background:  88 20% 38%;
-    --foreground:  60 20% 95%;
-    --card:        88 18% 28%;
-    --card-foreground: 60 20% 95%;
-    --popover:     88 18% 28%;
-    --popover-foreground: 60 20% 95%;
-    --primary:     88 23% 55%;
-    --primary-foreground: 0 0% 100%;
-    --secondary:   88 15% 45%;
-    --secondary-foreground: 60 20% 95%;
-    --muted:       88 15% 42%;
-    --muted-foreground: 88 15% 75%;
-    --accent:      43 100% 52%;
-    --accent-foreground: 160 57% 10%;
+    --background:  0 0% 12%;
+    --foreground:  42 51% 88%;
+    --card:        0 0% 17%;
+    --card-foreground: 42 51% 88%;
+    --popover:     0 0% 17%;
+    --popover-foreground: 42 51% 88%;
+    --primary:     84 25% 45%;
+    --primary-foreground: 42 51% 93%;
+    --secondary:   295 22% 55%;
+    --secondary-foreground: 42 51% 88%;
+    --muted:       0 0% 22%;
+    --muted-foreground: 42 20% 65%;
+    --accent:      295 22% 55%;
+    --accent-foreground: 0 0% 17%;
     --destructive: 0 62% 30%;
-    --destructive-foreground: 60 20% 95%;
-    --border:      88 15% 48%;
-    --input:       88 15% 48%;
-    --ring:        43 100% 52%;
-    --navbar-bg:   160 57% 10%;
+    --destructive-foreground: 42 51% 88%;
+    --border:      0 0% 25%;
+    --input:       0 0% 25%;
+    --ring:        295 22% 68%;
+    --navbar-bg:   0 0% 10%;
   }
 }
 
@@ -96,18 +96,18 @@
 }
 
 @layer utilities {
-  .text-sage { color: hsl(var(--sage)); }
-  .bg-sage { background-color: hsl(var(--sage)); }
-  .border-sage { border-color: hsl(var(--sage)); }
+  .text-oliva { color: hsl(var(--oliva)); }
+  .bg-oliva { background-color: hsl(var(--oliva)); }
+  .border-oliva { border-color: hsl(var(--oliva)); }
 
-  .text-deep-green { color: hsl(var(--deep-green)); }
-  .bg-deep-green { background-color: hsl(var(--deep-green)); }
+  .text-beige { color: hsl(var(--beige)); }
+  .bg-beige { background-color: hsl(var(--beige)); }
 
-  .text-warm-beige { color: hsl(var(--warm-beige)); }
-  .bg-warm-beige { background-color: hsl(var(--warm-beige)); }
+  .text-lavanda { color: hsl(var(--lavanda)); }
+  .bg-lavanda { background-color: hsl(var(--lavanda)); }
 
-  .text-mustard { color: hsl(var(--mustard)); }
-  .bg-mustard { background-color: hsl(var(--mustard)); }
+  .text-negro { color: hsl(var(--negro)); }
+  .bg-negro { background-color: hsl(var(--negro)); }
 }
 
 /* Smooth scrolling */
