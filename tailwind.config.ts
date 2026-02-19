@@ -60,22 +60,24 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         /* UniMarket brand colors */
-        sage: {
-          DEFAULT: "hsl(var(--sage))",
-          light: "hsl(88 23% 90%)",
-          dark: "hsl(88 23% 35%)",
+        oliva: {
+          DEFAULT: "hsl(var(--oliva))",
+          light: "hsl(84 25% 55%)",
+          dark: "hsl(84 25% 22%)",
         },
-        "deep-green": {
-          DEFAULT: "hsl(var(--deep-green))",
-          light: "hsl(160 40% 22%)",
+        beige: {
+          DEFAULT: "hsl(var(--beige))",
+          light: "hsl(42 51% 93%)",
+          dark: "hsl(42 30% 65%)",
         },
-        "warm-beige": {
-          DEFAULT: "hsl(var(--warm-beige))",
-          light: "hsl(33 38% 88%)",
+        lavanda: {
+          DEFAULT: "hsl(var(--lavanda))",
+          light: "hsl(295 22% 84%)",
+          dark: "hsl(295 22% 50%)",
         },
-        mustard: {
-          DEFAULT: "hsl(var(--mustard))",
-          dark: "hsl(43 100% 40%)",
+        negro: {
+          DEFAULT: "hsl(var(--negro))",
+          soft: "hsl(0 0% 30%)",
         },
       },
       borderRadius: {
