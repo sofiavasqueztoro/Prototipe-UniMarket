@@ -7,76 +7,77 @@
 @layer base {
   :root {
     /* UniMarket Brand Colors */
-    --oliva:       84 25% 34%;     /* #5A6B40 Oliva */
-    --beige:       42 51% 80%;     /* #E6D6B1 Beige Claro */
-    --lavanda:     295 22% 68%;    /* #BC9BBF Lavanda */
-    --negro:       0 0% 17%;       /* #2C2C2C Negro */
+    --yale-blue:    203 94% 20%;   /* #033F63 Yale Blue */
+    --stormy-teal:  187 47% 29%;   /* #28666E Stormy Teal */
+    --muted-teal:   140 12% 54%;   /* #7C9885 Muted Teal */
+    --dry-sage:     61  26% 61%;   /* #B5B682 Dry Sage */
+    --soft-peach:   40  98% 79%;   /* #FEDC97 Soft Peach */
 
     /* Semantic tokens */
-    --background:  42 51% 80%;     /* Beige Claro as main bg */
-    --foreground:  0 0% 17%;       /* Negro */
+    --background:   40  98% 79%;   /* Soft Peach as main bg */
+    --foreground:   203 94% 12%;   /* Yale Blue dark */
 
-    --card:        42 51% 90%;
-    --card-foreground: 0 0% 17%;
+    --card:         40  60% 90%;
+    --card-foreground: 203 94% 15%;
 
-    --popover:     42 40% 95%;
-    --popover-foreground: 0 0% 17%;
+    --popover:      40  50% 96%;
+    --popover-foreground: 203 94% 15%;
 
-    --primary:     84 25% 34%;     /* Oliva */
-    --primary-foreground: 42 51% 93%;
+    --primary:      203 94% 20%;   /* Yale Blue */
+    --primary-foreground: 40 98% 92%;
 
-    --secondary:   295 22% 68%;    /* Lavanda */
-    --secondary-foreground: 0 0% 17%;
+    --secondary:    140 12% 54%;   /* Muted Teal */
+    --secondary-foreground: 203 94% 15%;
 
-    --muted:       42 30% 72%;
-    --muted-foreground: 0 0% 40%;
+    --muted:        40  40% 72%;
+    --muted-foreground: 203 30% 35%;
 
-    --accent:      295 22% 68%;    /* Lavanda as accent */
-    --accent-foreground: 0 0% 17%;
+    --accent:       61  26% 61%;   /* Dry Sage */
+    --accent-foreground: 203 94% 15%;
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
 
-    --border:      42 30% 68%;
-    --input:       42 30% 68%;
-    --ring:        84 25% 34%;
+    --border:       40  30% 68%;
+    --input:        40  30% 68%;
+    --ring:         187 47% 29%;
 
     --radius: 0.75rem;
 
-    /* navbar uses Oliva */
-    --navbar-bg:   84 25% 34%;
+    /* navbar uses Yale Blue */
+    --navbar-bg:    203 94% 20%;
 
-    --sidebar-background: 84 25% 34%;
-    --sidebar-foreground: 42 51% 93%;
-    --sidebar-primary: 295 22% 68%;
-    --sidebar-primary-foreground: 0 0% 17%;
-    --sidebar-accent: 84 20% 28%;
-    --sidebar-accent-foreground: 42 51% 93%;
-    --sidebar-border: 84 18% 26%;
-    --sidebar-ring: 295 22% 68%;
+    --sidebar-background: 203 94% 20%;
+    --sidebar-foreground: 40 98% 90%;
+    --sidebar-primary: 40 98% 79%;
+    --sidebar-primary-foreground: 203 94% 15%;
+    --sidebar-accent: 203 70% 28%;
+    --sidebar-accent-foreground: 40 98% 90%;
+    --sidebar-border: 203 60% 25%;
+    --sidebar-ring: 40 98% 79%;
   }
 
   .dark {
-    --background:  0 0% 12%;
-    --foreground:  42 51% 88%;
-    --card:        0 0% 17%;
-    --card-foreground: 42 51% 88%;
-    --popover:     0 0% 17%;
-    --popover-foreground: 42 51% 88%;
-    --primary:     84 25% 45%;
-    --primary-foreground: 42 51% 93%;
-    --secondary:   295 22% 55%;
-    --secondary-foreground: 42 51% 88%;
-    --muted:       0 0% 22%;
-    --muted-foreground: 42 20% 65%;
-    --accent:      295 22% 55%;
-    --accent-foreground: 0 0% 17%;
-    --destructive: 0 62% 30%;
-    --destructive-foreground: 42 51% 88%;
-    --border:      0 0% 25%;
-    --input:       0 0% 25%;
-    --ring:        295 22% 68%;
-    --navbar-bg:   0 0% 10%;
+    --background:   203 40% 14%;
+    --foreground:   40  60% 88%;
+    --card:         203 40% 18%;
+    --card-foreground: 40 60% 88%;
+    --popover:      203 40% 18%;
+    --popover-foreground: 40 60% 88%;
+    --primary:      187 47% 40%;
+    --primary-foreground: 40 98% 95%;
+    --secondary:    140 12% 44%;
+    --secondary-foreground: 40 60% 88%;
+    --muted:        203 30% 22%;
+    --muted-foreground: 40 30% 60%;
+    --accent:       61  26% 50%;
+    --accent-foreground: 203 94% 12%;
+    --destructive:  0 62% 30%;
+    --destructive-foreground: 40 60% 88%;
+    --border:       203 30% 28%;
+    --input:        203 30% 28%;
+    --ring:         40  98% 79%;
+    --navbar-bg:    203 94% 12%;
   }
 }
 
@@ -96,18 +97,20 @@
 }
 
 @layer utilities {
-  .text-oliva { color: hsl(var(--oliva)); }
-  .bg-oliva { background-color: hsl(var(--oliva)); }
-  .border-oliva { border-color: hsl(var(--oliva)); }
+  .text-yale-blue   { color: hsl(var(--yale-blue)); }
+  .bg-yale-blue     { background-color: hsl(var(--yale-blue)); }
 
-  .text-beige { color: hsl(var(--beige)); }
-  .bg-beige { background-color: hsl(var(--beige)); }
+  .text-stormy-teal { color: hsl(var(--stormy-teal)); }
+  .bg-stormy-teal   { background-color: hsl(var(--stormy-teal)); }
 
-  .text-lavanda { color: hsl(var(--lavanda)); }
-  .bg-lavanda { background-color: hsl(var(--lavanda)); }
+  .text-muted-teal  { color: hsl(var(--muted-teal)); }
+  .bg-muted-teal    { background-color: hsl(var(--muted-teal)); }
 
-  .text-negro { color: hsl(var(--negro)); }
-  .bg-negro { background-color: hsl(var(--negro)); }
+  .text-dry-sage    { color: hsl(var(--dry-sage)); }
+  .bg-dry-sage      { background-color: hsl(var(--dry-sage)); }
+
+  .text-soft-peach  { color: hsl(var(--soft-peach)); }
+  .bg-soft-peach    { background-color: hsl(var(--soft-peach)); }
 }
 
 /* Smooth scrolling */
