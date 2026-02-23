@@ -161,7 +161,7 @@ export default function Sell() {
                 <Button
                   variant="outline"
                   size="sm"
-                  className="mt-3 w-full border-primary/30 text-primary"
+                  className="mt-3 w-full border-border text-foreground hover:border-primary hover:text-primary"
                   onClick={() => {
                     setPhotoPreview("https://images.unsplash.com/photo-1601333144130-8cbb312386b6?w=400&h=400&fit=crop");
                     runAiTagging();
@@ -174,7 +174,7 @@ export default function Sell() {
 
             {/* AI Tagging */}
             {(aiLoading || aiDone) && (
-              <div className="bg-card border rounded-xl p-5">
+              <div className="border rounded-xl p-5 bg-transparent">
                 <div className="flex items-center gap-2 mb-3">
                   <Sparkles className={`h-5 w-5 ${aiDone ? "text-sage" : "text-accent animate-pulse"}`} />
                   <p className="font-semibold text-sm">{aiLoading ? "AI is analyzing your photo..." : "AI tagging complete!"}</p>
@@ -185,7 +185,7 @@ export default function Sell() {
                 {aiDone && (
                   <div className="flex flex-wrap gap-2 mt-2">
                     {[`Size: ${form.size}`, `Color: ${form.color}`, `Category: ${form.category}`, `Style: ${form.style}`, `Condition: ${form.condition}`].map((tag) => (
-                      <Badge key={tag} className="bg-gradient-to-r from-primary/30 to-primary/20 text-primary border border-primary/40 gap-1 shadow-sm font-medium">
+                      <Badge key={tag} className="bg-white text-foreground border border-foreground gap-1 shadow-sm font-medium">
                         <Check className="h-3 w-3" /> {tag}
                       </Badge>
                     ))}
@@ -310,10 +310,10 @@ export default function Sell() {
               <CardContent className="p-4 space-y-2">
                 <p className="font-semibold text-sm truncate">{form.title || "Item title"}</p>
                 <div className="flex flex-wrap gap-1">
-                  {form.size && <Badge className="text-[10px] bg-gradient-to-r from-primary/30 to-primary/20 text-primary border border-primary/40 shadow-sm font-medium">📏 {form.size}</Badge>}
-                  {form.color && <Badge className="text-[10px] bg-gradient-to-r from-primary/30 to-primary/20 text-primary border border-primary/40 shadow-sm font-medium">🎨 {form.color}</Badge>}
-                  {form.category && <Badge className="text-[10px] bg-gradient-to-r from-primary/30 to-primary/20 text-primary border border-primary/40 shadow-sm font-medium">👗 {form.category}</Badge>}
-                  {form.condition && <Badge variant="secondary" className="text-[10px] bg-gradient-to-r from-secondary/30 to-secondary/20 border border-secondary/40 shadow-sm font-medium">{form.condition}</Badge>}
+                  {form.size && <Badge className="text-[10px] bg-white text-foreground border border-foreground shadow-sm font-medium">📏 {form.size}</Badge>}
+                  {form.color && <Badge className="text-[10px] bg-white text-foreground border border-foreground shadow-sm font-medium">🎨 {form.color}</Badge>}
+                  {form.category && <Badge className="text-[10px] bg-white text-foreground border border-foreground shadow-sm font-medium">👗 {form.category}</Badge>}
+                  {form.condition && <Badge variant="secondary" className="text-[10px] bg-white text-foreground border border-foreground shadow-sm font-medium">{form.condition}</Badge>}
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-bold text-accent">
