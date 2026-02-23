@@ -185,7 +185,7 @@ export default function Sell() {
                 {aiDone && (
                   <div className="flex flex-wrap gap-2 mt-2">
                     {[`Size: ${form.size}`, `Color: ${form.color}`, `Category: ${form.category}`, `Style: ${form.style}`, `Condition: ${form.condition}`].map((tag) => (
-                      <Badge key={tag} className="bg-primary/10 text-primary border-primary/20 gap-1">
+                      <Badge key={tag} className="bg-gradient-to-r from-primary/30 to-primary/20 text-primary border border-primary/40 gap-1 shadow-sm font-medium">
                         <Check className="h-3 w-3" /> {tag}
                       </Badge>
                     ))}
@@ -257,7 +257,7 @@ export default function Sell() {
                   <button
                     key={c}
                     onClick={() => setForm({ ...form, condition: c })}
-                    className={`px-4 py-2 rounded-xl border text-sm font-medium transition-all ${form.condition === c ? "bg-primary text-primary-foreground border-primary" : "border-border hover:border-primary text-foreground"}`}
+                    className={`px-4 py-2 rounded-xl border text-sm font-medium transition-all ${form.condition === c ? "border-primary text-primary" : "border-border hover:border-primary text-foreground"}`}
                   >
                     {c}
                   </button>
@@ -273,10 +273,10 @@ export default function Sell() {
                   <button
                     key={value}
                     onClick={() => setForm({ ...form, exchangeType: value })}
-                    className={`p-3 rounded-xl border text-left transition-all ${form.exchangeType === value ? "bg-primary text-primary-foreground border-primary" : "border-border hover:border-primary"}`}
+                    className={`p-3 rounded-xl border text-left transition-all ${form.exchangeType === value ? "border-primary text-primary" : "border-border hover:border-primary text-foreground"}`}
                   >
                     <p className="font-semibold text-sm">{label}</p>
-                    <p className={`text-xs mt-0.5 ${form.exchangeType === value ? "text-primary-foreground/70" : "text-muted-foreground"}`}>{desc}</p>
+                    <p className={`text-xs mt-0.5 ${form.exchangeType === value ? "text-primary" : "text-muted-foreground"}`}>{desc}</p>
                   </button>
                 ))}
               </div>
@@ -310,10 +310,10 @@ export default function Sell() {
               <CardContent className="p-4 space-y-2">
                 <p className="font-semibold text-sm truncate">{form.title || "Item title"}</p>
                 <div className="flex flex-wrap gap-1">
-                  {form.size && <Badge className="text-[10px] bg-primary/10 text-primary border-primary/20">📏 {form.size}</Badge>}
-                  {form.color && <Badge className="text-[10px] bg-primary/10 text-primary border-primary/20">🎨 {form.color}</Badge>}
-                  {form.category && <Badge className="text-[10px] bg-primary/10 text-primary border-primary/20">👗 {form.category}</Badge>}
-                  {form.condition && <Badge variant="secondary" className="text-[10px]">{form.condition}</Badge>}
+                  {form.size && <Badge className="text-[10px] bg-gradient-to-r from-primary/30 to-primary/20 text-primary border border-primary/40 shadow-sm font-medium">📏 {form.size}</Badge>}
+                  {form.color && <Badge className="text-[10px] bg-gradient-to-r from-primary/30 to-primary/20 text-primary border border-primary/40 shadow-sm font-medium">🎨 {form.color}</Badge>}
+                  {form.category && <Badge className="text-[10px] bg-gradient-to-r from-primary/30 to-primary/20 text-primary border border-primary/40 shadow-sm font-medium">👗 {form.category}</Badge>}
+                  {form.condition && <Badge variant="secondary" className="text-[10px] bg-gradient-to-r from-secondary/30 to-secondary/20 border border-secondary/40 shadow-sm font-medium">{form.condition}</Badge>}
                 </div>
                 <div className="flex items-center justify-between">
                   <span className="text-lg font-bold text-accent">

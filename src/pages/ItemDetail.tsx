@@ -23,9 +23,9 @@ const similarItems = [
 ];
 
 const conditionColors: Record<string, string> = {
-  "Like New": "bg-sage/20 text-sage-dark border-sage/40",
-  Good: "bg-warm-beige/20 text-warm-beige border-warm-beige/40",
-  Fair: "bg-muted text-muted-foreground border-border",
+  "Like New": "bg-white text-foreground border-foreground hover:bg-white",
+  Good: "bg-white text-foreground border-foreground hover:bg-white",
+  Fair: "bg-white text-foreground border-foreground hover:bg-white",
 };
 
 export default function ItemDetail() {
@@ -63,7 +63,7 @@ export default function ItemDetail() {
                 <button
                   key={i}
                   onClick={() => setActiveImg(i)}
-                  className={`h-16 w-16 rounded-lg overflow-hidden border-2 transition-all ${activeImg === i ? "border-primary scale-105" : "border-transparent opacity-60 hover:opacity-100"}`}
+                  className={`h-16 w-16 rounded-lg overflow-hidden border-2 transition-all ${activeImg === i ? "border-foreground scale-105" : "border-transparent opacity-60 hover:opacity-100"}`}
                 >
                   <img src={img} alt="" className="w-full h-full object-cover" />
                 </button>
@@ -92,10 +92,10 @@ export default function ItemDetail() {
                 </div>
               </div>
               <p className="text-3xl font-extrabold text-accent mb-1">${item.price}</p>
-              <Badge className={`text-xs border ${conditionColors[item.condition] ?? "bg-muted text-muted-foreground"}`}>
+              <Badge className={`text-xs border ${conditionColors[item.condition] ?? "bg-muted text-muted-foreground"} hover:bg-current`}>
                 {item.condition}
               </Badge>
-              <Badge className="ml-2 text-xs bg-secondary text-secondary-foreground border-0">
+              <Badge className="ml-2 text-xs bg-sage text-sage-dark border-0 hover:bg-sage">
                 {item.exchangeType === "sell" ? "For Sale" : item.exchangeType === "swap" ? "For Swap" : "Free / Donate"}
               </Badge>
             </div>
@@ -106,12 +106,12 @@ export default function ItemDetail() {
                 <span>🤖</span> AI-Generated Tags
               </p>
               <div className="flex flex-wrap gap-2">
-                <Badge className="bg-primary/10 text-primary border-primary/20">📏 Size {item.size}</Badge>
-                <Badge className="bg-primary/10 text-primary border-primary/20">🎨 {item.color}</Badge>
-                <Badge className="bg-primary/10 text-primary border-primary/20">👗 {item.category}</Badge>
-                <Badge className="bg-primary/10 text-primary border-primary/20">✨ {item.style}</Badge>
+                <Badge className="bg-white text-foreground border border-foreground hover:bg-white">📏 Size {item.size}</Badge>
+                <Badge className="bg-white text-foreground border border-foreground hover:bg-white">🎨 {item.color}</Badge>
+                <Badge className="bg-white text-foreground border border-foreground hover:bg-white">👗 {item.category}</Badge>
+                <Badge className="bg-white text-foreground border border-foreground hover:bg-white">✨ {item.style}</Badge>
                 {item.tags.slice(0, 3).map((tag) => (
-                  <Badge key={tag} variant="secondary" className="text-xs">{tag}</Badge>
+                  <Badge key={tag} className="bg-white text-foreground border border-foreground hover:bg-white text-xs">{tag}</Badge>
                 ))}
               </div>
             </div>
@@ -124,7 +124,7 @@ export default function ItemDetail() {
                 </p>
                 <span className="text-sm font-bold text-primary">{item.aiScore}% - {scoreLabel}</span>
               </div>
-              <Progress value={item.aiScore} className="h-2 [&>div]:bg-sage" />
+              <Progress value={item.aiScore} className="h-2 [&>div]:bg-primary-foreground" />
               <p className="text-xs text-muted-foreground mt-2">
                 Based on photo analysis of fabric quality, visible wear, and overall condition.
               </p>
@@ -170,7 +170,7 @@ export default function ItemDetail() {
             {/* Action Buttons */}
             <div className="flex gap-3">
               <Button
-                className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90 font-semibold h-11"
+                className="flex-1 bg-white text-foreground border border-foreground hover:bg-white/80 font-semibold h-11"
                 onClick={() => setMessageSent(true)}
               >
                 <MessageCircle className="h-4 w-4 mr-2" />
@@ -178,7 +178,7 @@ export default function ItemDetail() {
               </Button>
               <Button
                 variant="outline"
-                className={`flex-1 h-11 font-semibold border-primary text-primary hover:bg-primary hover:text-primary-foreground ${saved ? "bg-primary text-primary-foreground" : ""}`}
+                className={`flex-1 h-11 font-semibold border-foreground text-foreground hover:bg-white ${saved ? "bg-white" : ""}`}
                 onClick={() => setSaved(!saved)}
               >
                 <Heart className={`h-4 w-4 mr-2 ${saved ? "fill-current" : ""}`} />

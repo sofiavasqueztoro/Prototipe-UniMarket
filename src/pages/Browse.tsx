@@ -78,12 +78,12 @@ export default function Browse() {
                 placeholder="Search for items..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="pl-9 bg-white border-0 h-11"
+                className="pl-9 bg-white border-0 h-11 shadow-lg"
               />
             </div>
             <Button
               variant={aiSearch ? "default" : "outline"}
-              className={`h-11 gap-2 ${aiSearch ? "bg-accent text-accent-foreground border-0" : "bg-white/10 text-primary-foreground border-white/20 hover:bg-white/20"}`}
+              className={`h-11 gap-2 shadow-lg ${aiSearch ? "bg-accent text-accent-foreground border-0" : "bg-white/10 text-primary-foreground border-white/20 hover:bg-white/20"}`}
               onClick={() => setAiSearch(!aiSearch)}
               title="Visual search (AI simulation)"
             >
@@ -117,7 +117,7 @@ export default function Browse() {
                   <button
                     key={c}
                     onClick={() => setCategory(c)}
-                    className={`text-left text-sm px-3 py-1.5 rounded-lg transition-colors ${category === c ? "bg-primary text-primary-foreground font-medium" : "hover:bg-muted text-foreground"}`}
+                    className={`text-left text-sm px-3 py-1.5 rounded-lg transition-colors ${category === c ? "bg-white text-foreground font-medium border border-foreground" : "hover:bg-muted text-foreground"}`}
                   >
                     {c}
                   </button>
@@ -132,7 +132,7 @@ export default function Browse() {
                   <button
                     key={s}
                     onClick={() => setSize(s)}
-                    className={`text-xs px-2.5 py-1 rounded-lg border transition-colors ${size === s ? "bg-primary text-primary-foreground border-primary" : "border-border hover:border-primary text-foreground"}`}
+                    className={`text-xs px-2.5 py-1 rounded-lg border transition-colors ${size === s ? "bg-white text-foreground border-foreground" : "border-border hover:border-primary text-foreground"}`}
                   >
                     {s}
                   </button>
@@ -148,7 +148,7 @@ export default function Browse() {
                     key={c.name}
                     onClick={() => setColor(c.name)}
                     title={c.name}
-                    className={`h-6 w-6 rounded-full border-2 transition-transform hover:scale-110 ${color === c.name ? "border-primary scale-110" : "border-transparent"}`}
+                    className={`h-6 w-6 rounded-full border-2 transition-transform hover:scale-110 ${color === c.name ? "border-foreground scale-110" : "border-transparent"}`}
                     style={{ background: c.hex }}
                   />
                 ))}
@@ -162,7 +162,7 @@ export default function Browse() {
                   <button
                     key={c}
                     onClick={() => setCondition(c)}
-                    className={`text-left text-sm px-3 py-1.5 rounded-lg transition-colors ${condition === c ? "bg-primary text-primary-foreground font-medium" : "hover:bg-muted text-foreground"}`}
+                    className={`text-left text-sm px-3 py-1.5 rounded-lg transition-colors ${condition === c ? "bg-white text-foreground font-medium border border-foreground" : "hover:bg-muted text-foreground"}`}
                   >
                     {c}
                   </button>
@@ -192,7 +192,7 @@ export default function Browse() {
                 <button
                   key={c}
                   onClick={() => setCategory(category === c ? "All" : c)}
-                  className={`shrink-0 text-xs px-3 py-1.5 rounded-full border transition-colors ${category === c ? "bg-primary text-primary-foreground border-primary" : "border-border hover:border-primary text-foreground bg-card"}`}
+                  className={`shrink-0 text-xs px-3 py-1.5 rounded-full border transition-colors ${category === c ? "bg-white text-foreground border-foreground" : "border-border hover:border-primary text-foreground bg-card"}`}
                 >
                   {c}
                 </button>
@@ -230,7 +230,7 @@ export default function Browse() {
                     >
                       <Heart className={`h-3.5 w-3.5 ${savedItems[item.id] ? "fill-red-500 text-red-500" : "text-muted-foreground"}`} />
                     </button>
-                    <Badge className="absolute top-2 left-2 text-[10px] bg-primary text-primary-foreground">
+                    <Badge className="absolute top-2 left-2 text-[10px] bg-white text-foreground border border-foreground rounded-lg">
                       {item.condition}
                     </Badge>
                   </div>
@@ -238,7 +238,7 @@ export default function Browse() {
                     <p className="font-semibold text-sm truncate">{item.name}</p>
                     <div className="flex flex-wrap gap-1 mt-1.5 mb-2">
                       {item.tags.slice(0, 2).map((tag) => (
-                        <span key={tag} className="text-[10px] px-1.5 py-0.5 bg-secondary text-secondary-foreground rounded-full">
+                        <span key={tag} className="text-[10px] px-2 py-1 bg-gradient-to-r from-secondary/20 to-secondary/10 text-secondary border border-secondary/30 rounded-lg font-medium shadow-sm hover:shadow-md transition-all">
                           {tag}
                         </span>
                       ))}

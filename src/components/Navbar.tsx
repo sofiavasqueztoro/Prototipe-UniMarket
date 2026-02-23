@@ -29,7 +29,7 @@ export default function Navbar() {
     path === "/" ? location.pathname === "/" : location.pathname.startsWith(path);
 
   return (
-    <header className="fixed bottom-0 left-0 right-0 z-50 w-full border-t border-primary/20 bg-[hsl(var(--muted-teal))] shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
+    <header className="fixed bottom-0 left-0 right-0 z-50 w-full border-t border-primary/20 bg-[hsl(var(--white))] shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
       <div className="container relative flex h-16 items-center gap-4">
         
 
@@ -86,7 +86,7 @@ export default function Navbar() {
 
       {/* Mobile menu */}
       {mobileOpen && (
-        <div className="md:hidden border-t border-white/10 bg-[hsl(var(--muted-teal))]">
+        <div className="md:hidden border-t border-white/10 bg-[hsl(var(--white))]">
           <nav className="container py-3 flex flex-col gap-1">
             {navLinks.map(({ label, to, icon: Icon }) => (
               <Link

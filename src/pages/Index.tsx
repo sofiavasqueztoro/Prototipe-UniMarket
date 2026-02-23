@@ -137,7 +137,7 @@ export default function Index() {
         </div>
         <div className="container relative py-20 md:py-28 flex flex-col md:flex-row items-center gap-12">
           <div className="flex-1 text-center md:text-left animate-fade-in">
-            <Badge className="mb-4 bg-accent/20 text-accent border-accent/40 font-medium">
+            <Badge className="mb-4 bg-accent/20 text-accent border-accent/40 font-medium text-sm px-4 py-2">
               🌱 Sustainable Fashion for Students
             </Badge>
             <h1 className="text-5xl md:text-6xl font-extrabold text-primary-foreground leading-tight mb-4">
@@ -155,7 +155,7 @@ export default function Index() {
                 </Button>
               </Link>
               <Link to="/sell">
-                <Button size="lg" variant="outline" className="border-white/30 text-primary-foreground hover:bg-white/10 font-semibold px-8">
+                <Button size="lg" variant="outline" className="border-white/30 text-primary-foreground hover:bg-white/10 font-semibold px-8 shadow-lg">
                   Start Selling
                 </Button>
               </Link>
@@ -203,8 +203,8 @@ export default function Index() {
       <section className="py-20 bg-card/60 backdrop-blur-sm">
         <div className="container">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-yale mb-3">How It Works</h2>
-            <p className="text-yale max-w-md mx-auto">
+            <h2 className="text-3xl font-bold text-black mb-3">How It Works</h2>
+            <p className="text-black max-w-md mx-auto">
               Selling clothes has never been easier. Three steps is all it takes.
             </p>
           </div>
@@ -217,9 +217,9 @@ export default function Index() {
                 <div className="absolute top-8 right-0 hidden md:flex items-center last:hidden">
                   {i < steps.length - 1 && <ChevronRight className="h-6 w-6 text-muted-foreground" />}
                 </div>
-                <div className="text-xs font-bold text-yale mb-1">STEP {i + 1}</div>
-                <h3 className="text-lg font-semibold text-yale mb-2">{step.title}</h3>
-                <p className="text-sm text-yale">{step.desc}</p>
+                <div className="text-xs font-bold text-black mb-1">STEP {i + 1}</div>
+                <h3 className="text-lg font-semibold text-black mb-2">{step.title}</h3>
+                <p className="text-sm text-black">{step.desc}</p>
               </div>
             ))}
           </div>
@@ -256,7 +256,7 @@ export default function Index() {
                     >
                       <Heart className={`h-4 w-4 ${savedItems[item.id] ? "fill-red-500 text-red-500" : "text-muted-foreground"}`} />
                     </button>
-                    <Badge className="absolute top-2 left-2 bg-primary text-primary-foreground text-[10px]">
+                    <Badge className="absolute top-2 left-2 text-[10px] bg-white text-foreground border border-foreground rounded-lg shadow-sm font-medium">
                       {item.condition}
                     </Badge>
                   </div>
@@ -264,9 +264,8 @@ export default function Index() {
                     <p className="font-semibold text-sm text-foreground truncate">{item.name}</p>
                     <div className="flex items-center justify-between mt-1">
                       <span className="text-lg font-bold text-accent">${item.price}</span>
-                      <Badge variant="secondary" className="text-[10px]">Size {item.size}</Badge>
                     </div>
-                    <p className="text-xs text-muted-foreground mt-1">{item.seller}</p>
+                    <p className="text-xs text-muted-foreground mt-0.5">{item.seller} · Size {item.size}</p>
                   </CardContent>
                 </Card>
               </Link>
@@ -301,11 +300,11 @@ export default function Index() {
           Meet Eco, your sustainability buddy!
         </p>
 
-        <h3 className="text-2xl font-bold text-yale mb-2">
+        <h3 className="text-2xl font-bold text-black mb-2">
           Every swap makes a difference 🌍
         </h3>
 
-        <p className="text-yale/70 text-sm max-w-md">
+        <p className="text-black/70 text-sm max-w-md">
           I'm Eco -your guide to sustainable fashion. Earn points, level up,
           and get rewarded every time you buy, sell, or donate on UniMarket.
         </p>
@@ -313,7 +312,7 @@ export default function Index() {
 
       {/* Button */}
       <Link to="/profile">
-        <Button className="bg-yale text-white hover:bg-yale/90 font-semibold shrink-0">
+        <Button className="bg-black text-black hover:bg-black/90 font-semibold shrink-0 shadow-lg">
           See My Rewards <Star className="ml-2 h-4 w-4" />
         </Button>
       </Link>

@@ -23,7 +23,7 @@ export default {
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          foreground: "hsl(var(--muted-teal))",
         },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
@@ -60,8 +60,8 @@ export default {
           ring: "hsl(var(--sidebar-ring))",
         },
         /* UniMarket brand colors */
-        "yale-blue": {
-          DEFAULT: "hsl(var(--yale-blue))",
+        "black-blue": {
+          DEFAULT: "hsl(var(--black-blue))",
           light: "hsl(203 60% 35%)",
         },
         "stormy-teal": {
@@ -69,7 +69,7 @@ export default {
           light: "hsl(187 40% 45%)",
         },
         "muted-teal": {
-          DEFAULT: "hsl(var(--muted-teal))",
+          DEFAULT: "hsl(var(--white))",
           light: "hsl(140 12% 70%)",
         },
         "dry-sage": {

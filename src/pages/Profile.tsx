@@ -92,7 +92,7 @@ export default function Profile() {
         <div className="absolute -inset-2 rounded-[28px] bg-cta/35 blur-[2px]" />
         <div className="relative rounded-[28px] bg-white ring-1 ring-black/5 shadow-sm px-3 py-3">
           {/* tiny label */}
-          <div className="absolute -top-3 left-4 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-yale text-white shadow-sm">
+          <div className="absolute -top-3 left-4 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-black text-white shadow-sm">
             Eco
           </div>
 
@@ -119,16 +119,16 @@ export default function Profile() {
           <div className="absolute left-[-8px] top-8 h-4 w-4 rotate-45 bg-white border-l border-b border-primary/10" />
 
           <div className="flex items-center justify-between gap-3">
-            <p className="font-semibold text-yale text-sm">Eco says</p>
+            <p className="font-semibold text-black text-sm">Eco says</p>
             <Badge className="bg-cta text-charcoal border border-black/5 text-[10px]">
               This month
             </Badge>
           </div>
 
-          <p className="text-yale/80 text-sm mt-2 leading-relaxed">
-            You've sold <strong className="text-yale">3 items</strong> this month. 🌱 Keep it up!
-            You're just <strong className="text-yale">220 XP</strong> away from reaching{" "}
-            <strong className="text-yale">Level 5 - Sustainability Star</strong>. Every swap counts! 💪
+          <p className="text-black/80 text-sm mt-2 leading-relaxed">
+            You've sold <strong className="text-black">3 items</strong> this month. 🌱 Keep it up!
+            You're just <strong className="text-black">220 XP</strong> away from reaching{" "}
+            <strong className="text-black">Level 5 - Sustainability Star</strong>. Every swap counts! 💪
           </p>
 
           
@@ -145,23 +145,23 @@ export default function Profile() {
           <CardContent className="p-6">
             <div className="flex items-center justify-between mb-3">
               <div>
-                <p className="text-xs text-yale/70 font-semibold uppercase tracking-wide">Sustainability Level</p>
-                <p className="text-lg font-bold text-yale">
+                <p className="text-xs text-black/70 font-semibold uppercase tracking-wide">Sustainability Level</p>
+                <p className="text-lg font-bold text-black">
                   Level {currentLevel.level} – {currentLevel.name}
                 </p>
               </div>
               {nextLevel && (
                 <div className="text-right">
-                  <p className="text-xs text-yale/70">Next up</p>
-                  <p className="text-sm font-semibold text-yale">Level {nextLevel.level} · {nextLevel.name}</p>
-                  <p className="text-xs text-yale/70">{nextLevel.minXp - xp} XP to go</p>
+                  <p className="text-xs text-black/70">Next up</p>
+                  <p className="text-sm font-semibold text-black">Level {nextLevel.level} · {nextLevel.name}</p>
+                  <p className="text-xs text-black/70">{nextLevel.minXp - xp} XP to go</p>
                 </div>
               )}
             </div>
-            <Progress value={progress} className="h-3 [&>div]:bg-sage [&>div]:transition-all" />
-            <div className="flex justify-between text-xs text-yale/70 mt-1.5">
+            <Progress value={progress} className="h-3 [&>div]:bg-primary-foreground [&>div]:transition-all" />
+            <div className="flex justify-between text-xs text-black/70 mt-1.5">
               <span>{currentLevel.minXp} XP</span>
-              <span className="font-semibold text-yale">{xp} XP</span>
+              <span className="font-semibold text-black">{xp} XP</span>
               <span>{nextLevel?.minXp ?? "MAX"} XP</span>
             </div>
           </CardContent>
@@ -174,7 +174,7 @@ export default function Profile() {
             {badges.map((badge) => (
               <Card
                 key={badge.id}
-                className={`border-0 shadow-sm transition-all ${badge.earned ? "hover:shadow-md" : "opacity-50"}`}
+                className={`border-0 shadow-lg transition-all ${badge.earned ? "hover:shadow-lg" : "opacity-50"}`}
               >
                 <CardContent className="p-4 text-center">
                   <div className={`text-3xl mb-2 ${!badge.earned ? "grayscale" : ""}`}>
@@ -196,10 +196,10 @@ export default function Profile() {
         {/* Tabs: Activity + My Listings */}
         <Tabs defaultValue="activity">
           <TabsList className="bg-muted h-10">
-            <TabsTrigger value="activity" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+            <TabsTrigger value="activity" className="data-[state=active]:bg-white data-[state=active]:text-primary-foreground">
               Activity Feed
             </TabsTrigger>
-            <TabsTrigger value="listings" className="data-[state=active]:bg-primary data-[state=active]:text-primary-foreground">
+            <TabsTrigger value="listings" className="data-[state=active]:bg-white data-[state=active]:text-primary-foreground">
               My Listings
             </TabsTrigger>
           </TabsList>
@@ -207,7 +207,7 @@ export default function Profile() {
           <TabsContent value="activity" className="mt-4">
             <div className="space-y-3">
               {activityFeed.map((item) => (
-                <div key={item.id} className="flex items-center gap-3 bg-card border rounded-xl p-4 shadow-sm">
+                <div key={item.id} className="flex items-center gap-3 bg-card border rounded-xl p-4 shadow-lg">
                   <span className="text-2xl shrink-0">{item.icon}</span>
                   <div className="flex-1">
                     <p className="text-sm font-medium text-foreground">{item.text}</p>
@@ -224,7 +224,8 @@ export default function Profile() {
           <TabsContent value="listings" className="mt-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {listings.map((listing) => (
-                <Card key={listing.id} className="overflow-hidden border-0 shadow-sm hover:shadow-md transition-shadow">
+                <Card key={listing.id} className="overflow-hidden border-0 shadow-lg
+                 hover:shadow-lg transition-shadow">
                   <div className="relative h-40">
                     <img src={listing.image} alt={listing.name} className="w-full h-full object-cover" />
                     <Badge
