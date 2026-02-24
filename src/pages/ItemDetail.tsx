@@ -125,7 +125,7 @@ export default function ItemDetail() {
                 <span className="text-sm font-bold text-primary">{item.aiScore}% - {scoreLabel}</span>
               </div>
               <Progress value={item.aiScore} className="h-2 [&>div]:bg-primary-foreground" />
-              <p className="text-xs text-muted-foreground mt-2">
+              <p className="text-xs text-foreground mt-2">
                 Based on photo analysis of fabric quality, visible wear, and overall condition.
               </p>
             </div>
@@ -133,7 +133,7 @@ export default function ItemDetail() {
             {/* Description */}
             <div>
               <p className="text-sm font-semibold text-foreground mb-1">Description</p>
-              <p className="text-sm text-muted-foreground leading-relaxed">{item.description}</p>
+              <p className="text-sm text-foreground leading-relaxed">{item.description}</p>
             </div>
 
             {/* Seller Card */}

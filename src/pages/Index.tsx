@@ -129,7 +129,7 @@ export default function Index() {
           </h1>
 
           {/* Description */}
-          <p className="text-sm text-primary-foreground/70 max-w-sm leading-relaxed">
+          <p className="text-sm text-foreground max-w-sm leading-relaxed">
             Buy, sell, and swap second-hand clothes with students from your university. AI-powered tagging. Zero effort. Real impact.
           </p>
         </div>
