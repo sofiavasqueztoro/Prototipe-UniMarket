@@ -21,13 +21,11 @@ const FixedLogo = () => {
 
   return (
     <div className="fixed top-6 right-6 z-40">
-      <Link to="/" className="block">
-        <img
-          src="/Black and White Minimalist Fashion Store Logo.png"
-          alt="UniMarket"
-          className="h-[80px] w-auto"
-        />
-      </Link>
+      <img
+        src="/Black and White Minimalist Fashion Store Logo.png"
+        alt="UniMarket"
+        className="h-[80px] w-auto"
+      />
     </div>
   );
 };
@@ -47,7 +45,6 @@ const App = () => (
             <Route path="/item/:id" element={<ItemDetail />} />
             <Route path="/sell" element={<Sell />} />
             <Route path="/profile" element={<Profile />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

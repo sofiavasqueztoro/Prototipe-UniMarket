@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import { Search, Camera, Heart, Star, SlidersHorizontal, X } from "lucide-react";
+import { Search, Camera, Heart, Star, SlidersHorizontal, X, Sparkles, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -43,6 +43,7 @@ export default function Browse() {
     Object.fromEntries(listings.map((l) => [l.id, l.saved]))
   );
   const [aiSearch, setAiSearch] = useState(false);
+  const [showFilters, setShowFilters] = useState(false);
 
   const toggleSave = (id: number) =>
     setSavedItems((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -66,37 +67,47 @@ export default function Browse() {
   const hasFilters = category !== "All" || size !== "All" || condition !== "All" || color !== "All";
 
   return (
-    <main className="min-h-screen bg-background">
-      {/* Header */}
-      <div className="bg-deep-green py-8">
-        <div className="container">
-          <h1 className="text-3xl font-bold text-primary-foreground mb-4">Browse Items</h1>
-          <div className="flex gap-2">
-            <div className="relative flex-1 max-w-xl">
+    <main className="min-h-screen bg-background pb-24">
+      {/* Mobile Header */}
+      <div className="bg-deep-green py-4 sticky top-0 z-50">
+        <div className="px-4 space-y-3">
+          <h1 className="text-2xl font-bold text-primary-foreground">Browse</h1>
+          
+          {/* Search Bar */}
+          <div className="flex gap-2 pb-3">
+            <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
-                placeholder="Search for items..."
+                placeholder="Search items..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="pl-9 bg-white border-0 h-11 shadow-lg"
+                className="pl-9 bg-white border-0 h-11 text-sm"
               />
             </div>
             <Button
               variant={aiSearch ? "default" : "outline"}
-              className={`h-11 gap-2 shadow-lg ${aiSearch ? "bg-accent text-accent-foreground border-0" : "bg-white/10 text-primary-foreground border-white/20 hover:bg-white/20"}`}
+              className={`h-14 w-14 rounded-lg flex items-center justify-center flex-shrink-0 ${aiSearch ? "bg-accent text-accent-foreground border-0" : "bg-white/10 text-primary-foreground border-white/20 hover:bg-white/20"}`}
               onClick={() => setAiSearch(!aiSearch)}
-              title="Visual search (AI simulation)"
+              title="Visual search"
             >
-              <Camera className="h-4 w-4" />
-              <span className="hidden sm:inline">Visual Search</span>
+              <Camera className="h-6 w-6" />
+            </Button>
+            <Button
+              variant="outline"
+              className="h-14 w-14 rounded-lg flex items-center justify-center flex-shrink-0 bg-white/10 text-primary-foreground border-white/20 hover:bg-white/20"
+              onClick={() => setShowFilters(!showFilters)}
+              title="Filters"
+            >
+              <SlidersHorizontal className="h-6 w-6" />
             </Button>
           </div>
+
           {aiSearch && (
-            <div className="mt-3 p-3 bg-accent/20 border border-accent/40 rounded-lg text-sm text-primary-foreground flex items-center gap-2">
-              <span>🤖</span>
-              <span>AI Visual Search active - upload an image to find similar items</span>
-              <label className="ml-auto cursor-pointer bg-accent text-accent-foreground px-3 py-1 rounded-md text-xs font-semibold">
-                Upload Photo
+            <div className="p-2.5 bg-accent/20 border border-accent/40 rounded-lg text-xs text-primary-foreground flex items-center gap-2">
+              <Sparkles className="h-4 w-4" />
+              <span>Upload a photo to find similar items</span>
+              <label className="ml-auto cursor-pointer bg-accent text-accent-foreground px-2 py-1 rounded text-[10px] font-semibold">
+                Upload
                 <input type="file" accept="image/*" className="hidden" />
               </label>
             </div>
@@ -104,167 +115,155 @@ export default function Browse() {
         </div>
       </div>
 
-      <div className="container py-6 flex gap-6">
-        {/* Sidebar Filters (desktop) */}
-        <aside className="hidden lg:block w-56 shrink-0">
-          <div className="bg-card border rounded-xl p-4 sticky top-20 space-y-5">
-            <h2 className="font-semibold text-sm text-foreground">Filters</h2>
-
-            <div>
-              <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wide">Category</p>
-              <div className="flex flex-col gap-1">
-                {categories.map((c) => (
-                  <button
-                    key={c}
-                    onClick={() => setCategory(c)}
-                    className={`text-left text-sm px-3 py-1.5 rounded-lg transition-colors ${category === c ? "bg-white text-foreground font-medium border border-foreground" : "hover:bg-muted text-foreground"}`}
-                  >
-                    {c}
-                  </button>
-                ))}
-              </div>
+      {/* Filters Right Sidebar */}
+      {showFilters && (
+        <div className="fixed inset-0 z-40 bg-black/50" onClick={() => setShowFilters(false)}>
+          <div className="fixed top-0 right-0 h-full w-80 bg-background shadow-lg overflow-y-auto" onClick={(e) => e.stopPropagation()}>
+            {/* Header */}
+            <div className="sticky top-0 bg-background border-b border-border p-4 flex items-center justify-between">
+              <h2 className="font-semibold text-foreground">Filters</h2>
+              <button onClick={() => setShowFilters(false)} className="p-1">
+                <X className="h-5 w-5" />
+              </button>
             </div>
 
-            <div>
-              <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wide">Size</p>
-              <div className="flex flex-wrap gap-1.5">
-                {sizes.map((s) => (
-                  <button
-                    key={s}
-                    onClick={() => setSize(s)}
-                    className={`text-xs px-2.5 py-1 rounded-lg border transition-colors ${size === s ? "bg-white text-foreground border-foreground" : "border-border hover:border-primary text-foreground"}`}
-                  >
-                    {s}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wide">Color</p>
-              <div className="flex flex-wrap gap-2">
-                {colors.map((c) => (
-                  <button
-                    key={c.name}
-                    onClick={() => setColor(c.name)}
-                    title={c.name}
-                    className={`h-6 w-6 rounded-full border-2 transition-transform hover:scale-110 ${color === c.name ? "border-foreground scale-110" : "border-transparent"}`}
-                    style={{ background: c.hex }}
-                  />
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <p className="text-xs font-semibold text-muted-foreground mb-2 uppercase tracking-wide">Condition</p>
-              <div className="flex flex-col gap-1">
-                {conditions.map((c) => (
-                  <button
-                    key={c}
-                    onClick={() => setCondition(c)}
-                    className={`text-left text-sm px-3 py-1.5 rounded-lg transition-colors ${condition === c ? "bg-white text-foreground font-medium border border-foreground" : "hover:bg-muted text-foreground"}`}
-                  >
-                    {c}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {hasFilters && (
-              <Button
-                variant="ghost"
-                size="sm"
-                className="w-full text-muted-foreground"
-                onClick={() => { setCategory("All"); setSize("All"); setCondition("All"); setColor("All"); }}
-              >
-                <X className="h-3 w-3 mr-1" /> Clear filters
-              </Button>
-            )}
-          </div>
-        </aside>
-
-        {/* Main content */}
-        <div className="flex-1 min-w-0">
-          {/* Mobile filters + sort bar */}
-          <div className="flex flex-wrap items-center gap-2 mb-4">
-            <div className="flex gap-1 overflow-x-auto scrollbar-hide flex-1">
-              {categories.filter(c => c !== "All").map((c) => (
-                <button
-                  key={c}
-                  onClick={() => setCategory(category === c ? "All" : c)}
-                  className={`shrink-0 text-xs px-3 py-1.5 rounded-full border transition-colors ${category === c ? "bg-white text-foreground border-foreground" : "border-border hover:border-primary text-foreground bg-card"}`}
-                >
-                  {c}
-                </button>
-              ))}
-            </div>
-            <Select value={sort} onValueChange={setSort}>
-              <SelectTrigger className="w-36 h-8 text-xs">
-                <SlidersHorizontal className="h-3 w-3 mr-1" />
-                <SelectValue />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="newest">Newest</SelectItem>
-                <SelectItem value="price-asc">Price: Low–High</SelectItem>
-                <SelectItem value="price-desc">Price: High–Low</SelectItem>
-                <SelectItem value="rating">Top Rated</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          <p className="text-sm text-muted-foreground mb-4">{sorted.length} items found</p>
-
-          <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4">
-            {sorted.map((item) => (
-              <Link key={item.id} to={`/item/${item.id}`}>
-                <Card className="overflow-hidden hover:shadow-lg transition-all group border-0 shadow-sm hover:-translate-y-0.5">
-                  <div className="relative">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      className="w-full h-52 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
+            <div className="p-4 space-y-4">
+              {/* Category */}
+              <div>
+                <p className="text-xs font-semibold text-muted-foreground mb-3 uppercase">Type</p>
+                <div className="flex flex-wrap gap-2">
+                  {categories.map((c) => (
                     <button
-                      onClick={(e) => { e.preventDefault(); toggleSave(item.id); }}
-                      className="absolute top-2 right-2 h-7 w-7 rounded-full bg-white/80 backdrop-blur-sm flex items-center justify-center hover:scale-110 transition-transform"
+                      key={c}
+                      onClick={() => setCategory(c)}
+                      className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${category === c ? "bg-sage text-sage-dark border-sage-dark" : "border-border text-foreground"}`}
                     >
-                      <Heart className={`h-3.5 w-3.5 ${savedItems[item.id] ? "fill-red-500 text-red-500" : "text-muted-foreground"}`} />
+                      {c}
                     </button>
-                    <Badge className="absolute top-2 left-2 text-[10px] bg-white text-foreground border border-foreground rounded-lg">
-                      {item.condition}
-                    </Badge>
-                  </div>
-                  <CardContent className="p-3">
-                    <p className="font-semibold text-sm truncate">{item.name}</p>
-                    <div className="flex flex-wrap gap-1 mt-1.5 mb-2">
-                      {item.tags.slice(0, 2).map((tag) => (
-                        <span key={tag} className="text-[10px] px-2 py-1 bg-gradient-to-r from-secondary/20 to-secondary/10 text-secondary border border-secondary/30 rounded-lg font-medium shadow-sm hover:shadow-md transition-all">
-                          {tag}
-                        </span>
-                      ))}
-                    </div>
-                    <div className="flex items-center justify-between">
-                      <span className="font-bold text-accent">${item.price}</span>
-                      <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                        <Star className="h-3 w-3 fill-mustard text-mustard" />
-                        {item.rating}
-                      </div>
-                    </div>
-                    <p className="text-xs text-muted-foreground mt-0.5">{item.seller} · Size {item.size}</p>
-                  </CardContent>
-                </Card>
-              </Link>
-            ))}
-          </div>
+                  ))}
+                </div>
+              </div>
 
-          {sorted.length === 0 && (
-            <div className="text-center py-20">
-              <p className="text-4xl mb-3">🔍</p>
-              <p className="font-semibold text-foreground">No items found</p>
-              <p className="text-sm text-muted-foreground mt-1">Try adjusting your filters</p>
+              {/* Size */}
+              <div>
+                <p className="text-xs font-semibold text-muted-foreground mb-3 uppercase">Size</p>
+                <div className="flex flex-wrap gap-2">
+                  {sizes.map((s) => (
+                    <button
+                      key={s}
+                      onClick={() => setSize(s)}
+                      className={`text-xs px-2.5 py-1 rounded-lg border transition-colors ${size === s ? "bg-sage text-sage-dark border-sage-dark" : "border-border text-foreground"}`}
+                    >
+                      {s}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Condition */}
+              <div>
+                <p className="text-xs font-semibold text-muted-foreground mb-3 uppercase">Condition</p>
+                <div className="flex flex-wrap gap-2">
+                  {conditions.map((c) => (
+                    <button
+                      key={c}
+                      onClick={() => setCondition(c)}
+                      className={`text-xs px-3 py-1.5 rounded-full border transition-colors ${condition === c ? "bg-sage text-sage-dark border-sage-dark" : "border-border text-foreground"}`}
+                    >
+                      {c}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Color */}
+              <div>
+                <p className="text-xs font-semibold text-muted-foreground mb-3 uppercase">Color</p>
+                <div className="flex flex-wrap gap-2">
+                  {colors.map((c) => (
+                    <button
+                      key={c.name}
+                      onClick={() => setColor(c.name)}
+                      title={c.name}
+                      className={`h-7 w-7 rounded-full border-2 transition-transform ${color === c.name ? "border-sage scale-110" : "border-transparent"}`}
+                      style={{ background: c.hex }}
+                    />
+                  ))}
+                </div>
+              </div>
+
+              {hasFilters && (
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  className="w-full text-muted-foreground text-xs"
+                  onClick={() => { setCategory("All"); setSize("All"); setCondition("All"); setColor("All"); }}
+                >
+                  <X className="h-3 w-3 mr-1" /> Clear filters
+                </Button>
+              )}
+
+              {/* Apply Button */}
+              <Button 
+                className="w-full bg-accent text-accent-foreground hover:bg-accent/90 rounded-lg py-2.5 font-semibold"
+                onClick={() => setShowFilters(false)}
+              >
+                Apply Filters
+              </Button>
             </div>
-          )}
+          </div>
         </div>
+      )}
+
+      {/* Main Content */}
+      <div className="px-4 py-4 space-y-3">
+        {/* Item Count */}
+        <p className="text-sm font-medium text-muted-foreground">{sorted.length} items</p>
+
+        {/* Product Grid - 2 columns for mobile */}
+        <div className="grid grid-cols-2 gap-3">
+          {sorted.map((item) => (
+            <Link key={item.id} to={`/item/${item.id}`}>
+              <Card className="overflow-hidden hover:shadow-lg transition-all group border-0 shadow-sm h-full flex flex-col">
+                <div className="relative bg-muted aspect-square flex-shrink-0">
+                  <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  <button
+                    onClick={(e) => { e.preventDefault(); toggleSave(item.id); }}
+                    className="absolute top-2 right-2 h-8 w-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center active:scale-95 transition-transform"
+                  >
+                    <Heart className={`h-4 w-4 ${savedItems[item.id] ? "fill-red-500 text-red-500" : "text-muted-foreground"}`} />
+                  </button>
+                  <Badge className="absolute top-2 left-2 text-[9px] bg-white text-foreground border border-foreground px-2 py-0.5">
+                    {item.condition}
+                  </Badge>
+                </div>
+                <CardContent className="p-2.5 flex-1 flex flex-col">
+                  <p className="font-semibold text-xs line-clamp-2 flex-1">{item.name}</p>
+                  <div className="flex items-center justify-between mt-2">
+                    <span className="font-bold text-sm text-accent">${item.price}</span>
+                    <div className="flex items-center gap-0.5 text-[10px] text-muted-foreground">
+                      <Star className="h-3 w-3 fill-mustard text-mustard" />
+                      {item.rating}
+                    </div>
+                  </div>
+                  <p className="text-[10px] text-muted-foreground mt-1">{item.seller}</p>
+                </CardContent>
+              </Card>
+            </Link>
+          ))}
+        </div>
+
+        {sorted.length === 0 && (
+          <div className="text-center py-16">
+            <p className="text-3xl mb-2">🔍</p>
+            <p className="font-semibold text-foreground">No items found</p>
+            <p className="text-xs text-muted-foreground mt-1">Try different filters</p>
+          </div>
+        )}
       </div>
     </main>
   );

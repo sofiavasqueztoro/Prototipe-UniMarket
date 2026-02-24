@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { Heart, MessageCircle, Star, CheckCircle, ChevronLeft, Share2, ShieldCheck } from "lucide-react";
+import { Heart, MessageCircle, Star, CheckCircle, ChevronLeft, Share2, ShieldCheck, Zap } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
@@ -103,13 +103,13 @@ export default function ItemDetail() {
             {/* AI Tags */}
             <div>
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2 flex items-center gap-1">
-                <span>🤖</span> AI-Generated Tags
+                <Zap className="h-3 w-3" /> AI-Generated Tags
               </p>
               <div className="flex flex-wrap gap-2">
-                <Badge className="bg-white text-foreground border border-foreground hover:bg-white">📏 Size {item.size}</Badge>
-                <Badge className="bg-white text-foreground border border-foreground hover:bg-white">🎨 {item.color}</Badge>
-                <Badge className="bg-white text-foreground border border-foreground hover:bg-white">👗 {item.category}</Badge>
-                <Badge className="bg-white text-foreground border border-foreground hover:bg-white">✨ {item.style}</Badge>
+                <Badge className="bg-white text-foreground border border-foreground hover:bg-white">Size {item.size}</Badge>
+                <Badge className="bg-white text-foreground border border-foreground hover:bg-white">{item.color}</Badge>
+                <Badge className="bg-white text-foreground border border-foreground hover:bg-white">{item.category}</Badge>
+                <Badge className="bg-white text-foreground border border-foreground hover:bg-white">{item.style}</Badge>
                 {item.tags.slice(0, 3).map((tag) => (
                   <Badge key={tag} className="bg-white text-foreground border border-foreground hover:bg-white text-xs">{tag}</Badge>
                 ))}
@@ -120,7 +120,7 @@ export default function ItemDetail() {
             <div className="bg-card border rounded-xl p-4">
               <div className="flex items-center justify-between mb-2">
                 <p className="text-sm font-semibold text-foreground flex items-center gap-1.5">
-                  🤖 AI Quality Score
+                  <Zap className="h-4 w-4" /> AI Quality Score
                 </p>
                 <span className="text-sm font-bold text-primary">{item.aiScore}% - {scoreLabel}</span>
               </div>
@@ -174,7 +174,7 @@ export default function ItemDetail() {
                 onClick={() => setMessageSent(true)}
               >
                 <MessageCircle className="h-4 w-4 mr-2" />
-                {messageSent ? "Message Sent! ✓" : "Message Seller"}
+                {messageSent ? <><CheckCircle className="h-4 w-4 mr-2" />Message Sent!</> : "Message Seller"}
               </Button>
               <Button
                 variant="outline"
@@ -182,7 +182,7 @@ export default function ItemDetail() {
                 onClick={() => setSaved(!saved)}
               >
                 <Heart className={`h-4 w-4 mr-2 ${saved ? "fill-current" : ""}`} />
-                {saved ? "Saved ✓" : "Save Item"}
+                {saved ? <><CheckCircle className="h-3 w-3 mr-1" />Saved</> : "Save Item"}
               </Button>
             </div>
           </div>

@@ -10,16 +10,16 @@ import { Progress } from "@/components/ui/progress";
 
 const conditions = ["Like New", "Good", "Fair", "Poor"];
 const exchangeTypes = [
-  { value: "sell", label: "Sell 💰", desc: "List for a price" },
-  { value: "swap", label: "Swap 🔄", desc: "Trade for another item" },
-  { value: "donate", label: "Donate 🎁", desc: "Give it for free" },
+  { value: "sell", label: "Sell", desc: "List for a price" },
+  { value: "swap", label: "Swap", desc: "Trade for another item" },
+  { value: "donate", label: "Donate", desc: "Give it for free" },
 ];
 
 const sustainabilityTips = [
-  "🌱 By selling this item, you're preventing it from entering a landfill!",
-  "♻️ Second-hand fashion saves water and reduces CO₂ emissions.",
-  "🌍 Every swap saves ~7kg of CO₂ compared to buying new.",
-  "💚 You just extended this item's life and earned 50 XP with Eco!",
+  "By selling this item, you're preventing it from entering a landfill!",
+  "Second-hand fashion saves water and reduces CO₂ emissions.",
+  "Every swap saves ~7kg of CO₂ compared to buying new.",
+  "You just extended this item's life and earned 50 XP with Eco!",
 ];
 
 export default function Sell() {
@@ -93,12 +93,12 @@ export default function Sell() {
     return (
       <main className="min-h-screen bg-background flex items-center justify-center px-4">
         <div className="text-center max-w-sm">
-          <div className="text-6xl mb-4 animate-bounce">🎉</div>
+          <div className="text-5xl mb-4">✓</div>
           <h2 className="text-2xl font-bold text-primary mb-2">Listing Published!</h2>
           <p className="text-muted-foreground mb-4">{tip}</p>
           <div className="bg-sage/20 border border-sage/40 rounded-xl p-4 mb-6">
             <p className="text-sm font-semibold text-primary flex items-center justify-center gap-2">
-              <span>🌿</span> +50 XP earned with Eco!
+              <Sparkles className="h-4 w-4" /> +50 XP earned with Eco!
             </p>
           </div>
           <Button onClick={() => { setPublished(false); setPhotoPreview(null); setAiDone(false); setForm({ title: "", description: "", price: "", condition: "Good", exchangeType: "sell", size: "", color: "", category: "", style: "" }); }}

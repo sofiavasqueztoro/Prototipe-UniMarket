@@ -1,9 +1,5 @@
 import { Link, useLocation } from "react-router-dom";
-import { Bell, ShoppingBag, User, Home, Search, PlusCircle, Menu, X } from "lucide-react";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+import { Home, Search, PlusCircle, User } from "lucide-react";
 
 const navLinks = [
   { label: "Home", to: "/", icon: Home },
@@ -23,18 +19,15 @@ const HangerIcon = () => (
 
 export default function Navbar() {
   const location = useLocation();
-  const [mobileOpen, setMobileOpen] = useState(false);
 
   const isActive = (path: string) =>
     path === "/" ? location.pathname === "/" : location.pathname.startsWith(path);
 
   return (
     <header className="fixed bottom-0 left-0 right-0 z-50 w-full border-t border-primary/20 bg-[hsl(var(--white))] shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
-      <div className="container relative flex h-16 items-center gap-4">
-        
-
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-1 absolute left-1/2 -translate-x-1/2">
+      <div className="container relative flex h-16 items-center gap-4 justify-center">
+        {/* Nav - Always Visible */}
+        <nav className="flex items-center gap-1">
           {navLinks.map(({ label, to }) => (
             <Link
               key={to}
@@ -49,63 +42,7 @@ export default function Navbar() {
             </Link>
           ))}
         </nav>
-
-        {/* Right actions */}
-        <div className="ml-auto flex items-center gap-2">
-          <Button
-            variant="ghost"
-            size="icon"
-            className="relative text-primary-foreground hover:bg-white/10"
-            aria-label="Notifications"
-          >
-            <Bell className="h-5 w-5" />
-            <Badge className="absolute -top-1 -right-1 h-4 w-4 p-0 flex items-center justify-center text-[10px] bg-accent text-accent-foreground border-0">
-              3
-            </Badge>
-          </Button>
-
-          <Link to="/profile">
-            <Avatar className="h-8 w-8 cursor-pointer border-2 border-accent">
-              <AvatarImage src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex" alt="User" />
-              <AvatarFallback className="bg-sage text-primary-foreground text-xs font-semibold">AL</AvatarFallback>
-            </Avatar>
-          </Link>
-
-          {/* Mobile menu button */}
-          <Button
-            variant="ghost"
-            size="icon"
-            className="md:hidden text-primary-foreground hover:bg-white/10"
-            onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </Button>
-        </div>
       </div>
-
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden border-t border-white/10 bg-[hsl(var(--white))]">
-          <nav className="container py-3 flex flex-col gap-1">
-            {navLinks.map(({ label, to, icon: Icon }) => (
-              <Link
-                key={to}
-                to={to}
-                onClick={() => setMobileOpen(false)}
-                className={`flex items-center gap-3 px-4 py-3 rounded-lg text-sm font-medium transition-all ${
-                  isActive(to)
-                    ? "bg-accent text-accent-foreground font-semibold"
-                    : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
-                }`}
-              >
-                <Icon className="h-4 w-4" />
-                {label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      )}
     </header>
   );
 }
