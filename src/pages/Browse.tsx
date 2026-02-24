@@ -71,17 +71,17 @@ export default function Browse() {
       {/* Mobile Header */}
       <div className="bg-deep-green py-4 sticky top-0 z-50">
         <div className="px-4 space-y-3">
-          <h1 className="text-2xl font-bold text-primary-foreground">Browse</h1>
+          <h1 className="text-2xl font-bold text-primary-foreground pt-4">Browse</h1>
           
           {/* Search Bar */}
-          <div className="flex gap-2 pb-3">
+          <div className="flex gap-2 pb-3 pt-2">
             <div className="relative flex-1">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
               <Input
                 placeholder="Search items..."
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
-                className="pl-9 bg-white border-0 h-11 text-sm"
+                className="pl-9 bg-white border-0 h-11 text-sm py-2.5"
               />
             </div>
             <Button
@@ -216,7 +216,7 @@ export default function Browse() {
       )}
 
       {/* Main Content */}
-      <div className="px-4 py-4 space-y-3">
+      <div className="px-3 py-0.5 space-y-3">
         {/* Item Count */}
         <p className="text-sm font-medium text-muted-foreground">{sorted.length} items</p>
 

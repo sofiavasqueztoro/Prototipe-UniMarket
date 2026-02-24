@@ -58,23 +58,7 @@ const featuredListings = [
   },
 ];
 
-const steps = [
-  {
-    icon: "📷",
-    title: "Upload a Photo",
-    desc: "Snap a picture of your item - our AI does the rest.",
-  },
-  {
-    icon: "🤖",
-    title: "AI Tags Your Item",
-    desc: "Size, color, style, and condition detected automatically.",
-  },
-  {
-    icon: "✨",
-    title: "Get Discovered",
-    desc: "Students on campus browse and buy directly from you.",
-  },
-];
+
 
 const stats = [
   { value: 1240, label: "Items Exchanged", icon: Recycle, suffix: "+" },
@@ -130,7 +114,7 @@ export default function Index() {
   return (
     <main className="min-h-screen bg-background flex flex-col pb-16">
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-deep-green flex flex-col px-4 py-6">
+      <section className="relative overflow-hidden bg-deep-green flex flex-col px-4 py-6 pt-16">
         {/* Top Content */}
         <div className="flex flex-col items-center text-center space-y-4">
           {/* Logo/Tagline */}
@@ -151,13 +135,13 @@ export default function Index() {
         </div>
 
         {/* Buttons */}
-        <div className=" -row gap-3 w-full mt-6 mb-6">
-          <Link to="/browse" className="flex-1">
+        <div className="flex flex-col gap-4 w-full mt-6 mb-6">
+          <Link to="/browse" className="w-full">
             <Button size="lg" className="w-full bg-sage text-sage-dark hover:bg-sage/90 font-semibold">
               Browse Items <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </Link>
-          <Link to="/sell" className="flex-1">
+          <Link to="/sell" className="w-full">
             <Button size="lg" variant="outline" className="w-full border-primary-foreground/30 text-primary-foreground hover:bg-white/10 font-semibold">
               Start Selling
             </Button>
@@ -165,7 +149,7 @@ export default function Index() {
         </div>
 
         {/* Featured Item Card */}
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center mb-6">
           <div className="relative w-64 h-72">
             <img
               src="https://images.unsplash.com/photo-1467043237213-65f2da53396f?w=500&h=600&fit=crop"
@@ -185,7 +169,25 @@ export default function Index() {
             </div>
           </div>
         </div>
-      </section>
+</section>
+       {/* Eco Mascot Section */}
+<div className="bg-white rounded-2xl p-4 flex items-center gap-4 border border-gray-200 shadow-sm max-w-md mx-auto">
+  <div className="w-14 h-14 flex items-center justify-center flex-shrink-0">
+    <img 
+      src="/llama.jpeg" 
+      alt="Eco mascot" 
+      className="w-full h-full object-contain" 
+    />
+  </div>
+
+  <div className="flex-1">
+    <p className="text-sm font-semibold text-gray-900">Hi! My name is Eco 🌿</p>
+    <p className="text-xs text-gray-500 mt-1">
+      Welcome to your sustainable fashion journey!
+    </p>
+  </div>
+</div>
+      
 
     </main>
   );

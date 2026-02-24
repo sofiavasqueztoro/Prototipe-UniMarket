@@ -58,91 +58,64 @@ export default function Profile() {
   return (
     <main className="min-h-screen bg-background">
       {/* Header */}
-      <div className="bg-deep-green py-10">
-        <div className="container flex flex-col sm:flex-row items-center gap-6">
-          <Avatar className="h-20 w-20 border-4 border-accent shadow-lg">
+      <div className="bg-deep-green py-4 sticky top-0 z-50">
+        <div className="container flex items-center justify-between">
+          <h1 className="text-2xl font-bold text-primary-foreground">Profile</h1>
+        </div>
+      </div>
+
+      {/* User Info */}
+      <div className="bg-deep-green/50 py-6 border-b border-deep-green">
+        <div className="container flex items-center gap-4">
+          <Avatar className="h-16 w-16 border-2 border-accent flex-shrink-0">
             <AvatarImage src="https://api.dicebear.com/7.x/avataaars/svg?seed=Alex" />
-            <AvatarFallback className="bg-sage text-primary-foreground text-xl font-bold">AL</AvatarFallback>
+            <AvatarFallback className="bg-sage text-primary-foreground text-sm font-bold">AL</AvatarFallback>
           </Avatar>
-          <div className="text-center sm:text-left">
-            <h1 className="text-2xl font-bold text-primary-foreground">Alex López</h1>
+          <div className="flex-1">
+            <h2 className="text-xl font-bold text-primary-foreground">Alex López</h2>
             <p className="text-primary-foreground/85 text-sm">UCM Madrid · Member since Sept 2024</p>
-            <div className="flex items-center gap-2 mt-2 justify-center sm:justify-start">
+            <div className="flex items-center gap-2 mt-2">
               <Star className="h-4 w-4 fill-mustard text-mustard" />
               <span className="text-primary-foreground font-semibold text-sm">4.8</span>
               <span className="text-primary-foreground/80 text-xs">· 15 transactions</span>
             </div>
-          </div>
-          <div className="sm:ml-auto text-center">
-            <p className="text-cta font-bold text-2xl">{xp.toLocaleString()}</p>
-            <p className="text-primary-foreground/80 text-xs">XP Points</p>
+            <div className="mt-3">
+              <p className="text-accent font-bold text-lg">{xp.toLocaleString()} XP Points</p>
+            </div>
           </div>
         </div>
       </div>
 
       <div className="container py-8 space-y-8">
-        {/* Eco Mascot */}
-<Card className="border-0 shadow-sm overflow-hidden bg-white">
-  <CardContent className="p-0">
-    <div className="p-6 flex items-center gap-5">
-      
-      {/* Mascot container (NEW) */}
-      <div className="relative shrink-0">
-        {/* soft blob background */}
-        <div className="absolute -inset-2 rounded-[28px] bg-cta/35 blur-[2px]" />
-        <div className="relative rounded-[28px] bg-white ring-1 ring-black/5 shadow-sm px-3 py-3">
-          {/* tiny label */}
-          <div className="absolute -top-3 left-4 px-2.5 py-1 rounded-full text-[11px] font-semibold bg-black text-white shadow-sm">
-            Eco
-          </div>
+        {/* Eco Mascot (simple like Profile sections) */}
+        <div className="bg-deep-green/50 py-6">
+          <div className="container flex items-start gap-3">
 
-          {/* image */}
-          <div className="rounded-[22px] bg-sage/25 ring-1 ring-black/5 p-2">
+            {/* Image */}
             <img
               src="/llama.jpeg"
               alt="Eco mascot llama"
-              className="h-[118px] w-[118px] object-contain drop-shadow-sm"
+              className="h-30 w-20 object-contain flex-shrink-0"
             />
-          </div>
 
-          {/* little sparkle / icon */}
-          <div className="absolute -bottom-2 -right-2 h-9 w-9 rounded-full bg-white shadow ring-1 ring-black/5 flex items-center justify-center">
-            <span className="text-lg">🌿</span>
+            {/* Text */}
+            <div className="flex-1">
+              <h3 className="text-base font-bold text-primary-foreground">
+                Eco says:
+              </h3>
+              <p className="text-sm text-primary-black/85 mt-1">
+                You've sold <span className="font-semibold">3 items</span> this month.
+                You're just <span className="font-semibold">220 XP</span> away from
+                <span className="font-semibold"> Level 5 - Sustainability Star</span>. Keep it up to unlock new badges and rewards!
+              </p>
+            </div>
+
           </div>
         </div>
-      </div>
-
-      {/* Message bubble */}
-      <div className="relative flex-1">
-        <div className="bg-white rounded-2xl p-5 border border-primary/10 shadow-sm">
-          {/* “speech” pointer */}
-          <div className="absolute left-[-8px] top-8 h-4 w-4 rotate-45 bg-white border-l border-b border-primary/10" />
-
-          <div className="flex items-center justify-between gap-3">
-            <p className="font-semibold text-black text-sm">Eco says</p>
-            <Badge className="bg-cta text-charcoal border border-black/5 text-[10px]">
-              This month
-            </Badge>
-          </div>
-
-          <p className="text-black/80 text-sm mt-2 leading-relaxed">
-            You've sold <strong className="text-black">3 items</strong> this month. 🌱 Keep it up!
-            You're just <strong className="text-black">220 XP</strong> away from reaching{" "}
-            <strong className="text-black">Level 5 - Sustainability Star</strong>. Every swap counts! 💪
-          </p>
-
-          
-        </div>
-      </div>
-
-    </div>
-  </CardContent>
-</Card>
-
 
         {/* Level Progress */}
-        <Card className="border-0 shadow-sm bg-white">
-          <CardContent className="p-6">
+        <Card className="border-0 shadow-lg bg-white">
+          <CardContent className="p-4">
             <div className="flex items-center justify-between mb-3">
               <div>
                 <p className="text-xs text-black/70 font-semibold uppercase tracking-wide">Sustainability Level</p>

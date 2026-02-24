@@ -112,14 +112,14 @@ export default function Sell() {
 
   return (
     <main className="min-h-screen bg-background">
-      <div className="bg-deep-green py-8">
+      <div className="bg-deep-green py-8 pt-24">
         <div className="container">
           <h1 className="text-3xl font-bold text-primary-foreground">List an Item</h1>
           <p className="text-primary-foreground/70 text-sm mt-1">Upload a photo - our AI will tag it for you automatically</p>
         </div>
       </div>
 
-      <div className="container py-8">
+      <div className="container py-8 pt-1">
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Form */}
           <div className="lg:col-span-2 space-y-6">
@@ -285,7 +285,7 @@ export default function Sell() {
             <Button
               onClick={handleSubmit}
               disabled={!form.title}
-              className="w-full h-12 bg-primary text-primary-foreground font-bold text-base hover:bg-primary/90"
+              className="w-full h-12 bg-sage text-sage-dark font-bold text-base hover:bg-sage/90"
             >
               <Upload className="h-4 w-4 mr-2" /> Publish Listing
             </Button>
