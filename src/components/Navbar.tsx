@@ -28,16 +28,17 @@ export default function Navbar() {
       <div className="container relative flex h-16 items-center gap-4 justify-center">
         {/* Nav - Always Visible */}
         <nav className="flex items-center gap-1">
-          {navLinks.map(({ label, to }) => (
+          {navLinks.map(({ label, to, icon: Icon }) => (
             <Link
               key={to}
               to={to}
-              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+              className={`px-4 py-2 rounded-lg text-sm font-medium transition-all flex items-center gap-2 ${
                 isActive(to)
                   ? "bg-accent text-accent-foreground font-semibold"
                   : "text-primary-foreground/80 hover:text-primary-foreground hover:bg-white/10"
               }`}
             >
+              <Icon className="w-4 h-4" />
               {label}
             </Link>
           ))}
