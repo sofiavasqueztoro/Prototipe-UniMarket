@@ -15,14 +15,12 @@ const queryClient = new QueryClient();
 
 const FixedLogo = () => {
   const location = useLocation();
-  if (location.pathname.startsWith("/profile")) {
-    return null;
-  }
+  if (location.pathname.startsWith("/profile")) return null;
 
   return (
     <div className="fixed top-6 right-6 z-40">
       <img
-        src="/Black and White Minimalist Fashion Store Logo.png"
+        src={`${import.meta.env.BASE_URL}Black and White Minimalist Fashion Store Logo.png`}
         alt="UniMarket"
         className="h-[80px] w-auto"
       />
@@ -35,7 +33,7 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-      <BrowserRouter>
+      <BrowserRouter basename="/Prototipe-UniMarket">
         <FixedLogo />
         <Navbar />
         <div className="pb-16">
@@ -52,6 +50,3 @@ const App = () => (
     </TooltipProvider>
   </QueryClientProvider>
 );
-
-export default App;
-
