@@ -174,7 +174,7 @@ export default function Index() {
 <div className="bg-white rounded-2xl p-4 flex items-center gap-4 border border-gray-200 shadow-sm max-w-md mx-auto">
   <div className="w-14 h-14 flex items-center justify-center flex-shrink-0">
     <img 
-      src="/llama.jpeg" 
+      src={import.meta.env.BASE_URL + "llama.jpeg"}
       alt="Eco mascot" 
       className="w-full h-full object-contain" 
     />

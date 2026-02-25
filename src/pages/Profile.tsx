@@ -93,7 +93,7 @@ export default function Profile() {
 
             {/* Image */}
             <img
-              src="/llama.jpeg"
+              src={import.meta.env.BASE_URL + "llama.jpeg"}
               alt="Eco mascot llama"
               className="h-30 w-20 object-contain flex-shrink-0"
             />
