@@ -40,10 +40,7 @@ export default function BottomNav() {
                   active ? "text-accent" : "text-primary-foreground/70 hover:text-primary-foreground"
                 }`}
             >
-              <div className="flex flex-col items-center">
-                <Icon className={`h-6 w-6 ${active ? "scale-110" : ""} transition-transform`} />
-                <span className="text-xs mt-1">{label}</span>
-              </div>
+              <Icon className={`h-6 w-6 ${active ? "scale-110" : ""} transition-transform`} />
             </Link>
           );
         })}
@@ -66,10 +63,7 @@ export default function BottomNav() {
                   active ? "text-accent" : "text-primary-foreground/70 hover:text-primary-foreground"
                 }`}
             >
-              <div className="flex flex-col items-center">
-                <Icon className={`h-6 w-6 ${active ? "scale-110" : ""} transition-transform`} />
-                <span className="text-xs mt-1">{label}</span>
-              </div>
+              <Icon className={`h-6 w-6 ${active ? "scale-110" : ""} transition-transform`} />
             </Link>
           );
         })}
