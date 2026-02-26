@@ -1,30 +1,35 @@
 import { Link, useLocation } from "react-router-dom";
-import { Home, Search, PlusCircle, User } from "lucide-react";
+import {
+  IoHomeOutline,
+  IoSearchOutline,
+  IoAddCircleOutline,
+  IoListOutline,
+  IoPersonOutline,
+} from "react-icons/io5";
 
 const navLinks = [
-  { label: "Home", to: "/", icon: Home },
-  { label: "Browse", to: "/browse", icon: Search },
-  { label: "Sell", to: "/sell", icon: PlusCircle },
-  { label: "Profile", to: "/profile", icon: User },
+  { label: "Home", to: "/", icon: IoHomeOutline },
+  { label: "Browse", to: "/browse", icon: IoSearchOutline },
+  { label: "Sell", to: "/sell", icon: IoAddCircleOutline },
+  { label: "Listings", to: "/profile?view=listings", icon: IoListOutline },
+  { label: "Profile", to: "/profile", icon: IoPersonOutline },
 ];
 
-const HangerIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" className="w-7 h-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M3 19h18l-9-9-9 9z" />
-    <path d="M12 10V6" />
-    <path d="M9 6a3 3 0 0 1 6 0" />
-    <circle cx="12" cy="3" r="1" fill="currentColor" stroke="none" />
-  </svg>
-);
 
 export default function Navbar() {
   const location = useLocation();
 
-  const isActive = (path: string) =>
-    path === "/" ? location.pathname === "/" : location.pathname.startsWith(path);
+  const isActive = (path: string) => {
+    const [p, q] = path.split("?");
+    if (p === "/") return location.pathname === "/";
+    if (q && q.includes("view=listings")) {
+      return location.pathname === "/profile" && location.search.includes("view=listings");
+    }
+    return location.pathname.startsWith(p);
+  };
 
   return (
-    <header className="fixed bottom-0 left-0 right-0 z-50 w-full border-t border-primary/20 bg-[hsl(var(--white))] shadow-[0_-4px_12px_rgba(0,0,0,0.08)]">
+    <header className="hidden md:block w-full border-b border-primary/20 bg-[hsl(var(--white))]">
       <div className="container relative flex h-16 items-center gap-4 justify-center">
         {/* Nav - Always Visible */}
         <nav className="flex items-center gap-1">

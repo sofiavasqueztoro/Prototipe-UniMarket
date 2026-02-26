@@ -6,11 +6,14 @@ import { Routes, Route, useLocation } from "react-router-dom";
 import { HashRouter as BrowserRouter } from "react-router-dom";
 
 import Navbar from "@/components/Navbar";
+import BottomNav from "@/components/BottomNav";
 import Index from "./pages/Index";
 import Browse from "./pages/Browse";
 import ItemDetail from "./pages/ItemDetail";
 import Sell from "./pages/Sell";
 import Profile from "./pages/Profile";
+import Donate from "./pages/Donate";
+import Swap from "./pages/Swap";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -46,9 +49,12 @@ function App() {
               <Route path="/browse" element={<Browse />} />
               <Route path="/item/:id" element={<ItemDetail />} />
               <Route path="/sell" element={<Sell />} />
+              <Route path="/donate" element={<Donate />} />
+              <Route path="/swap" element={<Swap />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <BottomNav />
           </div>
         </BrowserRouter>
       </TooltipProvider>
